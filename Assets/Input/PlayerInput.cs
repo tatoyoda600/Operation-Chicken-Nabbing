@@ -24,83 +24,60 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInput"",
     ""maps"": [
         {
-            ""name"": ""TestMovement"",
-            ""id"": ""256b4403-977d-4524-986a-24cb91dd1e1a"",
+            ""name"": ""Interaction"",
+            ""id"": ""2eaf7614-ebb9-4d5d-b507-176d61136155"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""1d06b7a9-0a3b-4878-877b-a2dfd1734357"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""e5da6629-645d-4573-b32a-5dc7dd8c1f5b"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouse Position"",
+                    ""type"": ""Value"",
+                    ""id"": ""459db209-4995-4cba-aaf4-c30f45a94bc2"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD"",
-                    ""id"": ""11cfd3a9-3b6c-4ada-85a9-6562b8ed1952"",
-                    ""path"": ""2DVector(mode=1)"",
-                    ""interactions"": ""Press"",
+                    ""name"": """",
+                    ""id"": ""29992460-3b14-4f77-b4a4-a711bbb2b73a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""82bf7410-4451-4b84-8046-e85806810c04"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""name"": """",
+                    ""id"": ""1ffc6d7d-6af7-44f3-9d5d-395872c6c6e5"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Mouse Position"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""18109f02-e5e8-4a0b-a3bf-f4bd8ba84926"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""4f5c20ef-fdca-480a-adff-7b6d9b5dfc30"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""09f131e4-8fdf-402c-827b-d29085f9c490"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // TestMovement
-        m_TestMovement = asset.FindActionMap("TestMovement", throwIfNotFound: true);
-        m_TestMovement_Movement = m_TestMovement.FindAction("Movement", throwIfNotFound: true);
+        // Interaction
+        m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
+        m_Interaction_Click = m_Interaction.FindAction("Click", throwIfNotFound: true);
+        m_Interaction_MousePosition = m_Interaction.FindAction("Mouse Position", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -159,53 +136,62 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // TestMovement
-    private readonly InputActionMap m_TestMovement;
-    private List<ITestMovementActions> m_TestMovementActionsCallbackInterfaces = new List<ITestMovementActions>();
-    private readonly InputAction m_TestMovement_Movement;
-    public struct TestMovementActions
+    // Interaction
+    private readonly InputActionMap m_Interaction;
+    private List<IInteractionActions> m_InteractionActionsCallbackInterfaces = new List<IInteractionActions>();
+    private readonly InputAction m_Interaction_Click;
+    private readonly InputAction m_Interaction_MousePosition;
+    public struct InteractionActions
     {
         private @PlayerInput m_Wrapper;
-        public TestMovementActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_TestMovement_Movement;
-        public InputActionMap Get() { return m_Wrapper.m_TestMovement; }
+        public InteractionActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Click => m_Wrapper.m_Interaction_Click;
+        public InputAction @MousePosition => m_Wrapper.m_Interaction_MousePosition;
+        public InputActionMap Get() { return m_Wrapper.m_Interaction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(TestMovementActions set) { return set.Get(); }
-        public void AddCallbacks(ITestMovementActions instance)
+        public static implicit operator InputActionMap(InteractionActions set) { return set.Get(); }
+        public void AddCallbacks(IInteractionActions instance)
         {
-            if (instance == null || m_Wrapper.m_TestMovementActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_TestMovementActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
+            if (instance == null || m_Wrapper.m_InteractionActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InteractionActionsCallbackInterfaces.Add(instance);
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
+            @MousePosition.started += instance.OnMousePosition;
+            @MousePosition.performed += instance.OnMousePosition;
+            @MousePosition.canceled += instance.OnMousePosition;
         }
 
-        private void UnregisterCallbacks(ITestMovementActions instance)
+        private void UnregisterCallbacks(IInteractionActions instance)
         {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
+            @MousePosition.started -= instance.OnMousePosition;
+            @MousePosition.performed -= instance.OnMousePosition;
+            @MousePosition.canceled -= instance.OnMousePosition;
         }
 
-        public void RemoveCallbacks(ITestMovementActions instance)
+        public void RemoveCallbacks(IInteractionActions instance)
         {
-            if (m_Wrapper.m_TestMovementActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_InteractionActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(ITestMovementActions instance)
+        public void SetCallbacks(IInteractionActions instance)
         {
-            foreach (var item in m_Wrapper.m_TestMovementActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_InteractionActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_TestMovementActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_InteractionActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public TestMovementActions @TestMovement => new TestMovementActions(this);
-    public interface ITestMovementActions
+    public InteractionActions @Interaction => new InteractionActions(this);
+    public interface IInteractionActions
     {
-        void OnMovement(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }

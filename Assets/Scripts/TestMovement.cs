@@ -12,11 +12,23 @@ public class TestMovement : MonoBehaviour
     public Tilemap interactionTilemap;
 
     Vector2 movementDirection = Vector2.zero;
+    Vector2 destination = Vector2.zero;
 
     private void Awake()
     {
         playerInput = new PlayerInput();
         transform.position = groundTilemap.GetCellCenterWorld(groundTilemap.WorldToCell(transform.position));
+        destination = transform.position;
+
+        playerInput.Interaction.Click.performed += (_) =>
+        {
+            Vector3 pos = Camera.main.ScreenToWorldPoint(playerInput.Interaction.MousePosition.ReadValue<Vector2>());
+            Vector3Int gridPos = interactionTilemap.WorldToCell(pos);
+            if (interactionTilemap.HasTile(gridPos))
+            {
+                destination = interactionTilemap.GetCellCenterWorld(gridPos);
+            }
+        };
     }
 
     private void OnEnable()
@@ -31,7 +43,14 @@ public class TestMovement : MonoBehaviour
 
     private void Update()
     {
-        movementDirection += playerInput.TestMovement.Movement.ReadValue<Vector2>() * Time.deltaTime;
+        Vector2 movement = (destination - (Vector2)transform.position);
+        if (movement.magnitude < 0.5f * groundTilemap.cellSize.x)
+        {
+            movement = Vector2.zero;
+            movementDirection = Vector2.zero;
+            destination = transform.position;
+        }
+        movementDirection += movement.normalized * Time.deltaTime;
         OnMove(movementDirection);
     }
 
@@ -59,6 +78,9 @@ public class TestMovement : MonoBehaviour
                         SiblingRuleTile.SetState(collisionTilemap, zonePos, newValue);
                     }
                 }
+
+                movementDirection = Vector2.zero;
+                destination = transform.position;
             }
         }
     }

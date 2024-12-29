@@ -2,74 +2,50 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "TestMovement",
-            "id": "256b4403-977d-4524-986a-24cb91dd1e1a",
+            "name": "Interaction",
+            "id": "2eaf7614-ebb9-4d5d-b507-176d61136155",
             "actions": [
                 {
-                    "name": "Movement",
-                    "type": "PassThrough",
-                    "id": "1d06b7a9-0a3b-4878-877b-a2dfd1734357",
-                    "expectedControlType": "Vector2",
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "e5da6629-645d-4573-b32a-5dc7dd8c1f5b",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Mouse Position",
+                    "type": "Value",
+                    "id": "459db209-4995-4cba-aaf4-c30f45a94bc2",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
-                    "name": "WASD",
-                    "id": "11cfd3a9-3b6c-4ada-85a9-6562b8ed1952",
-                    "path": "2DVector(mode=1)",
-                    "interactions": "Press",
+                    "name": "",
+                    "id": "29992460-3b14-4f77-b4a4-a711bbb2b73a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
+                    "action": "Click",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "82bf7410-4451-4b84-8046-e85806810c04",
-                    "path": "<Keyboard>/w",
+                    "name": "",
+                    "id": "1ffc6d7d-6af7-44f3-9d5d-395872c6c6e5",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "Mouse Position",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "18109f02-e5e8-4a0b-a3bf-f4bd8ba84926",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "4f5c20ef-fdca-480a-adff-7b6d9b5dfc30",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "09f131e4-8fdf-402c-827b-d29085f9c490",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         }
