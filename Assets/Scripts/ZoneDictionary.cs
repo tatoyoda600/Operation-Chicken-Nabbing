@@ -16,7 +16,7 @@ public class ZoneDictionary : MonoBehaviour
     public struct Zone
     {
         public string zoneName;
-        public List<Vector3Int> gridPositions;
+        public List<Vector2Int> gridPositions;
     }
 
     [SerializeField]
@@ -54,7 +54,7 @@ public class ZoneDictionary : MonoBehaviour
                 {
                     Zone output = new Zone();
                     output.zoneName = data.zoneName;
-                    output.gridPositions = new List<Vector3Int>(GetNeighbors(data.zoneName, gridPos, new HashSet<Vector3Int>()));
+                    output.gridPositions = new List<Vector2Int>(GetNeighbors(data.zoneName, gridPos, new HashSet<Vector2Int>()));
                     return output;
                 }
             }
@@ -63,11 +63,11 @@ public class ZoneDictionary : MonoBehaviour
         return null;
     }
 
-    HashSet<Vector3Int> GetNeighbors(string zoneName, Vector3Int gridPos, HashSet<Vector3Int> neighbors)
+    HashSet<Vector2Int> GetNeighbors(string zoneName, Vector3Int gridPos, HashSet<Vector2Int> neighbors)
     {
-        if (!neighbors.Contains(gridPos) && GetZoneName(gridPos)?.Equals(zoneName) == true)
+        if (!neighbors.Contains((Vector2Int)gridPos) && GetZoneName(gridPos)?.Equals(zoneName) == true)
         {
-            neighbors.Add(gridPos);
+            neighbors.Add((Vector2Int)gridPos);
             neighbors.UnionWith(GetNeighbors(zoneName, gridPos + Vector3Int.up, neighbors));
             neighbors.UnionWith(GetNeighbors(zoneName, gridPos + Vector3Int.right, neighbors));
             neighbors.UnionWith(GetNeighbors(zoneName, gridPos + Vector3Int.down, neighbors));

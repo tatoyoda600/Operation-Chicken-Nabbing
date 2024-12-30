@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class PathWeb : MonoBehaviour
 {
     [System.Serializable]
     public class WebNode
     {
+
         [HideInInspector]
         public int id = -1;
-        public bool active = true;
+        [HideInInspector]
+        public bool active = false;
         public string name;
         public Vector3 position;
         [HideInInspector]
@@ -48,6 +53,7 @@ public class PathWeb : MonoBehaviour
 
     static int nextId = -1;
 
+#if UNITY_EDITOR
     [InspectorButton("New Node")]
     public void CreateNewNode()
     {
@@ -62,9 +68,10 @@ public class PathWeb : MonoBehaviour
 
         WebNode newNode = new WebNode();
         newNode.id = nextId++;
-        newNode.position = gameObject.transform.position + Vector3.up + Vector3.right;
+        newNode.position = (Vector2)SceneView.lastActiveSceneView.camera.transform.position;
         nodes.Add(newNode);
     }
+#endif
 
     public WebNode GetWebNode(int id)
     {
@@ -90,6 +97,51 @@ public class PathWeb : MonoBehaviour
         }
 
         return null;
+    }
+
+    [HideInInspector]
+    public WebNode currentWebNode;
+
+    public void MoveToConnection(int id) { MoveToConnection(GetWebNode(id)); }
+    public void MoveToConnection(string name) { MoveToConnection(GetWebNode(name)); }
+    public void MoveToConnection(WebNode node)
+    {
+        if (node != null)
+        {
+            ChangeNodeState(currentWebNode, false);
+            ChangeNodeState(node, true);
+            currentWebNode = node;
+        }
+    }
+
+
+    public void ScanNode(int id) { ScanNode(GetWebNode(id)); }
+    public void ScanNode(string name) { ScanNode(GetWebNode(name)); }
+    public void ScanNode(WebNode node)
+    {
+        if (node != null && !node.name.Equals(currentWebNode.name))
+        {
+            ChangeNodeState(node, true);
+            TimeManager.instance.RegisterRoomScan(node);
+        }
+    }
+
+    public void ChangeNodeState(int id, bool active) { ChangeNodeState(GetWebNode(id), active); }
+    public void ChangeNodeState(string name, bool active) { ChangeNodeState(GetWebNode(name), active); }
+    public void ChangeNodeState(WebNode node, bool active)
+    {
+        if (node != null)
+        {
+            node.active = active;
+            foreach (int connectionId in node.connections)
+            {
+                WebNode connection = GetWebNode(connectionId);
+                if (connection != null)
+                {
+                    connection.active = active;
+                }
+            }
+        }
     }
 }
 

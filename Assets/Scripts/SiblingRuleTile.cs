@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(menuName = "2D/Tiles/Sibling Rule Tile")]
-public class SiblingRuleTile : RuleTile
+public class SiblingRuleTile : AlternateRuleTile
 {
     public enum SibingGroup
     {
@@ -10,8 +10,6 @@ public class SiblingRuleTile : RuleTile
     }
     public SibingGroup siblingGroup;
     public bool ignoreSiblings = false;
-
-    const string gridInfoKey = "SiblingRuleTile_State";
 
     public override bool RuleMatch(int neighbor, TileBase other)
     {
@@ -48,7 +46,8 @@ public class SiblingRuleTile : RuleTile
 
             if (stateValue > int.MinValue)
             {
-                if (rule.m_GameObject.GetComponent<AlternateRuleValue>().value != stateValue)
+                AlternateRuleValue altRuleValue = rule.m_GameObject?.GetComponent<AlternateRuleValue>();
+                if (altRuleValue && altRuleValue.value != stateValue)
                 {
                     return false;
                 }
@@ -56,30 +55,5 @@ public class SiblingRuleTile : RuleTile
         }
 
         return base.RuleMatches(rule, position, tilemap, ref transform);
-    }
-
-    public static int GetState(Tilemap tilemap, Vector3Int gridPos)
-    {
-        GridInformation gridInfo = tilemap.GetComponent<GridInformation>();
-
-        if (!gridInfo)
-        {
-            Debug.LogError("No GridInformation on tilemap " + tilemap.ToString());
-        }
-
-        return gridInfo.GetPositionProperty(gridPos, gridInfoKey, int.MinValue);
-    }
-
-    public static void SetState(Tilemap tilemap, Vector3Int gridPos, int stateValue)
-    {
-        GridInformation gridInfo = tilemap.GetComponent<GridInformation>();
-
-        if (!gridInfo)
-        {
-            Debug.LogError("No GridInformation on tilemap " + tilemap.ToString());
-        }
-
-        gridInfo.SetPositionProperty(gridPos, gridInfoKey, stateValue);
-        tilemap.RefreshTile(gridPos);
     }
 }

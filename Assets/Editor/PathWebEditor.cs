@@ -17,6 +17,8 @@ public class PathWebEditor : Editor
     PathWeb.WebNode selectedNode;
     const BindingFlags flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
     static GUIStyle style = null;
+    float clickCooldownTime = 0.1f;
+    float clickCooldown = 0f;
 
     public override void OnInspectorGUI()
     {
@@ -51,6 +53,7 @@ public class PathWebEditor : Editor
         for (int i = 0; i < component.nodes.Count; i++)
         {
             PathWeb.WebNode node1 = component.nodes[i];
+            Handles.color = node1.Equals(selectedNode) ? selectedHandleColor : handleColor;
 
             for (int j = 0; j < node1.connections.Count; j++)
             {
@@ -81,6 +84,7 @@ public class PathWebEditor : Editor
             }
 
             checkedNodes.Add(node1.id);
+            Handles.color = handleColor;
         }
 
         for (int i = 0; i < component.nodes.Count; i++)
@@ -91,12 +95,12 @@ public class PathWebEditor : Editor
             Handles.PositionHandleIds id = Handles.PositionHandleIds.@default;
             node1.position = Handles.PositionHandle(id, node1.position, Quaternion.identity);
             Handles.CircleHandleCap(GUIUtility.GetControlID(FocusType.Passive), node1.position, Quaternion.identity, 0.5f, EventType.Repaint);
-            DrawText(node1.name, node1.position, new Vector2(50, 100), Handles.color);
+            DrawText(node1.name, node1.position, new Vector2(50, 100), Handles.color == disabledColor ? Color.white : Handles.color);
 
             Handles.color = node1.Equals(selectedNode) ? selectedHandleColor : handleColor;
 
             List<int> ids = new List<int> { id.x, id.xy, id.xyz, id.xz, id.y, id.yz, id.z };
-            if (ids.Contains(GUIUtility.hotControl))
+            if (clickCooldown <= Time.realtimeSinceStartup && ids.Contains(GUIUtility.hotControl))
             {
                 selectedHandle = true;
                 if (selectedNode != null)
@@ -104,10 +108,12 @@ public class PathWebEditor : Editor
                     if (Event.current.shift)
                     {
                         PathWeb.WebNode.ConnectNodes(ref selectedNode, ref node1, component.bidirectional);
+                        GUI.changed = true;
                     }
                     else if (Event.current.control)
                     {
                         PathWeb.WebNode.DisconnectNodes(ref selectedNode, ref node1, true);
+                        GUI.changed = true;
                     }
                     else
                     {
@@ -118,17 +124,22 @@ public class PathWebEditor : Editor
                 {
                     selectedNode = node1;
                 }
+                clickCooldown = Time.realtimeSinceStartup + clickCooldownTime;
+                break;
             }
         }
 
         if (selectedNode != null)
         {
+            /*
             if (Event.current.type == EventType.KeyUp && (Event.current.keyCode == KeyCode.Return || Event.current.keyCode == KeyCode.KeypadEnter))
             {
                 selectedNode.active = !selectedNode.active;
                 Event.current.Use();
             }
-            else if (Event.current.type == EventType.KeyUp && (Event.current.keyCode == KeyCode.Delete || Event.current.keyCode == KeyCode.Backspace))
+            else
+            */
+            if (Event.current.type == EventType.KeyUp && (Event.current.keyCode == KeyCode.Delete || Event.current.keyCode == KeyCode.Backspace))
             {
                 for (int i = 0; i < component.nodes.Count; i++)
                 {
@@ -136,10 +147,11 @@ public class PathWebEditor : Editor
                     PathWeb.WebNode.DisconnectNodes(ref node, ref selectedNode, false);
                 }
                 component.nodes.Remove(selectedNode);
+                GUI.changed = true;
                 selectedNode = null;
                 Event.current.Use();
             }
-            else if (!selectedHandle && !Event.current.shift && !Event.current.control && GUIUtility.hotControl != 0)
+            else if (!selectedHandle && clickCooldown <= Time.realtimeSinceStartup && !Event.current.shift && !Event.current.control && GUIUtility.hotControl != 0)
             {
                 selectedNode = null;
             }
@@ -157,7 +169,10 @@ public class PathWebEditor : Editor
         UnityEditor.Handles.BeginGUI();
 
         var restoreColor = GUI.color;
-        if (color.HasValue) GUI.color = color.Value;
+        if (color.HasValue)
+        {
+            GUI.color = color.Value;
+        }
 
         var view = UnityEditor.SceneView.currentDrawingSceneView;
         var screenPos = view.camera.WorldToScreenPoint(worldPos);
@@ -169,6 +184,10 @@ public class PathWebEditor : Editor
             {
                 style = new GUIStyle(GUI.skin.label);
                 style.fontSize = 30;
+            }
+            if (color.HasValue)
+            {
+                style.normal.textColor = color.Value;
             }
             var size = style.CalcSize(new GUIContent(text));
 
@@ -189,6 +208,10 @@ public class PathWebEditor : Editor
         }
 
         GUI.color = restoreColor;
+        if (style != null)
+        {
+            style.normal.textColor = restoreColor;
+        }
         UnityEditor.Handles.EndGUI();
     }
 }
