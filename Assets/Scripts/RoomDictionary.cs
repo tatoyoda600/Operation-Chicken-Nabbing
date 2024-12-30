@@ -259,4 +259,13 @@ public class RoomDictionary : MonoBehaviour
             }
         }
     }
+
+    public void ChangeRoomTextColor(string roomName, Color color)
+    {
+        TextMeshProUGUI text = gameObject.transform.Find("Canvas_RoomMask")?.Find(roomName + "_Text")?.GetComponent<TextMeshProUGUI>();
+        if (text)
+        {
+            text.color = color;
+        }
+    }
 }

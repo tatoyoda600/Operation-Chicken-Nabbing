@@ -74,6 +74,7 @@ public class TimeManager : MonoBehaviour
     {
         RoomScan roomScan = new RoomScan() { roomNode = roomNode, scanTime = RoomScan.startScanTime + RoomScan.delayTime };
         roomScans.Add(roomScan);
+        roomDictionary.ChangeRoomTextColor(roomNode.name, new Color(101f / 255f, 119f / 255f, 181f / 255f));
     }
 
     public void RegisterDestroyObject(GameObject obj, int lifetime)
@@ -129,11 +130,13 @@ public class TimeManager : MonoBehaviour
                 source.clip = scanSound;
                 source.Play();
                 pathWeb.ChangeNodeState(roomScan.roomNode, true);
+                roomDictionary.ChangeRoomTextColor(roomScan.roomNode.name, Color.green);
             }
             else if (roomScan.scanTime <= 0)
             {
                 pathWeb.ChangeNodeState(roomScan.roomNode, false);
                 roomScans.RemoveAt(i);
+                roomDictionary.ChangeRoomTextColor(roomScan.roomNode.name, Color.white);
                 i--;
             }
         }
