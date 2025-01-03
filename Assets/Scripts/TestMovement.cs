@@ -246,9 +246,10 @@ public class TestMovement : MonoBehaviour
             {
                 centerNeightborCells.Add(zonePos);
             }
-            AlternateRuleTile.SetState(collisionTilemap, (Vector3Int)zonePos, (int)AlternateRuleTile.DoorStates.Open);
+            AlternateRuleTile.SetStateNoRefresh(collisionTilemap, (Vector3Int)zonePos, (int)AlternateRuleTile.DoorStates.Open);
         }
 
+        StartCoroutine(RoomDictionary.RefreshTilesAsync(collisionTilemap, interactionZone.gridPositions));
         if (centerNeightborCells.Count > 0)
         {
             // Separate the close and far ends of the door
@@ -306,15 +307,15 @@ public class TestMovement : MonoBehaviour
                     // Close door
                     foreach (Vector2Int zonePos in interactionZone.gridPositions)
                     {
-                        AlternateRuleTile.SetState(collisionTilemap, (Vector3Int)zonePos, (int)AlternateRuleTile.DoorStates.Closed);
+                        AlternateRuleTile.SetStateNoRefresh(collisionTilemap, (Vector3Int)zonePos, (int)AlternateRuleTile.DoorStates.Closed);
                     }
+                    StartCoroutine(RoomDictionary.RefreshTilesAsync(collisionTilemap, interactionZone.gridPositions));
                 };
             }
             else
             {
                 Debug.LogError("Door is missing a connection??!?");
             }
-
         }
         else
         {
@@ -322,8 +323,9 @@ public class TestMovement : MonoBehaviour
             noInput = false;
             foreach (Vector2Int zonePos in interactionZone.gridPositions)
             {
-                AlternateRuleTile.SetState(collisionTilemap, (Vector3Int)zonePos, (int)SiblingRuleTile.DoorStates.Closed);
+                AlternateRuleTile.SetStateNoRefresh(collisionTilemap, (Vector3Int)zonePos, (int)AlternateRuleTile.DoorStates.Closed);
             }
+            StartCoroutine(RoomDictionary.RefreshTilesAsync(collisionTilemap, interactionZone.gridPositions));
         }
     }
 }

@@ -54,6 +54,7 @@ public class TimeManager : MonoBehaviour
             instance = this;
             anim = gameObject.GetComponent<Animator>();
             FreezeTimer(false);
+            AlternateRuleTile.ClearMaps();
         }
     }
 

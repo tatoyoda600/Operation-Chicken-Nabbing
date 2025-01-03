@@ -15,22 +15,8 @@ public class SiblingRuleTile : AlternateRuleTile
     {
         if (!ignoreSiblings)
         {
-            if (other is RuleOverrideTile)
-                other = (other as RuleOverrideTile).m_InstanceTile;
-
-            switch (neighbor)
-            {
-                case TilingRule.Neighbor.This:
-                    {
-                        return other is SiblingRuleTile
-                            && (other as SiblingRuleTile).siblingGroup == this.siblingGroup;
-                    }
-                case TilingRule.Neighbor.NotThis:
-                    {
-                        return !(other is SiblingRuleTile
-                            && (other as SiblingRuleTile).siblingGroup == this.siblingGroup);
-                    }
-            }
+            other = (other as RuleOverrideTile)?.m_InstanceTile ?? other;
+            return ((other as SiblingRuleTile)?.siblingGroup == siblingGroup) == (neighbor == TilingRuleOutput.Neighbor.This);
         }
 
         return base.RuleMatch(neighbor, other);
@@ -38,15 +24,16 @@ public class SiblingRuleTile : AlternateRuleTile
 
     public override bool RuleMatches(TilingRule rule, Vector3Int position, ITilemap tilemap, ref Matrix4x4 transform)
     {
-        GridInformation gridInfo = tilemap.GetComponent<GridInformation>();
+        GridInformation gridInfo = GetGridInfo(tilemap);
 
-        if (gridInfo)
+        if (gridInfo && rule.m_GameObject)
         {
             int stateValue = gridInfo.GetPositionProperty(position, gridInfoKey, int.MinValue);
 
             if (stateValue > int.MinValue)
             {
-                AlternateRuleValue altRuleValue = rule.m_GameObject?.GetComponent<AlternateRuleValue>();
+                AlternateRuleValue altRuleValue = GetAltRuleValue(rule.m_GameObject);
+
                 if (altRuleValue && altRuleValue.value != stateValue)
                 {
                     return false;
@@ -54,6 +41,6 @@ public class SiblingRuleTile : AlternateRuleTile
             }
         }
 
-        return base.RuleMatches(rule, position, tilemap, ref transform);
+        return BaseRuleMatches(rule, position, tilemap, ref transform);
     }
 }

@@ -242,20 +242,34 @@ public class RoomDictionary : MonoBehaviour
                 GridInformation gridInfo = tilemap.GetComponent<GridInformation>();
                 if (gridInfo)
                 {
-                    foreach (Vector2Int cell in node.nodeCells)
+                    foreach (Vector3Int cell in node.nodeCells)
                     {
-                        gridInfo.SetPositionProperty((Vector3Int)cell, AlternateRuleTile.gridInfoKey, light ? (int)AlternateRuleTile.LightStates.Light : (int)AlternateRuleTile.LightStates.Dark);
+                        gridInfo.SetPositionProperty(cell, AlternateRuleTile.gridInfoKey, light ? (int)AlternateRuleTile.LightStates.Light : (int)AlternateRuleTile.LightStates.Dark);
                     }
                 }
                 else
                 {
                     Debug.LogWarning("Setting Tiles manually");
-                    foreach (Vector2Int cell in node.nodeCells)
+                    foreach (Vector3Int cell in node.nodeCells)
                     {
-                        tilemap.SetTile((Vector3Int)cell, light ? lightTile : darkTile);
+                        tilemap.SetTile(cell, light ? lightTile : darkTile);
                     }
                 }
-                tilemap.RefreshAllTiles();
+                StartCoroutine(RefreshTilesAsync(tilemap, node.nodeCells));
+            }
+        }
+    }
+
+    public static IEnumerator RefreshTilesAsync(Tilemap tilemap, List<Vector2Int> cells)
+    {
+        for (int i = 0; i < cells.Count; i++)
+        {
+            Vector3Int cell = (Vector3Int)cells[i];
+            tilemap.RefreshTile(cell);
+
+            if (i % 5 == 4)
+            {
+                yield return null;
             }
         }
     }
