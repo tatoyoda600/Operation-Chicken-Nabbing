@@ -10,11 +10,10 @@ public class PathWeb : MonoBehaviour
     [System.Serializable]
     public class WebNode
     {
-
         [HideInInspector]
         public int id = -1;
         [HideInInspector]
-        public bool active = false;
+        public bool playerLocked = false;
         public string name;
         public Vector3 position;
         [HideInInspector]
@@ -51,7 +50,12 @@ public class PathWeb : MonoBehaviour
     public List<WebNode> nodes = new List<WebNode>();
     public bool bidirectional = false;
 
+    [HideInInspector]
+    public WebNode currentWebNode;
+
+    static readonly List<WebNode> lockedNodes = new List<WebNode>();
     static int nextId = -1;
+
 
 #if UNITY_EDITOR
     [InspectorButton("New Node")]
@@ -99,46 +103,69 @@ public class PathWeb : MonoBehaviour
         return null;
     }
 
-    [HideInInspector]
-    public WebNode currentWebNode;
-
     public void MoveToConnection(int id) { MoveToConnection(GetWebNode(id)); }
     public void MoveToConnection(string name) { MoveToConnection(GetWebNode(name)); }
     public void MoveToConnection(WebNode node)
     {
         if (node != null)
         {
-            ChangeNodeState(currentWebNode, false);
-            ChangeNodeState(node, true);
+            LockNode(currentWebNode, false);
+            LockNode(node, true);
             currentWebNode = node;
         }
     }
 
-
-    public void ScanNode(int id) { ScanNode(GetWebNode(id)); }
-    public void ScanNode(string name) { ScanNode(GetWebNode(name)); }
-    public void ScanNode(WebNode node)
-    {
-        if (node != null && !node.name.Equals(currentWebNode.name))
-        {
-            ChangeNodeState(node, true);
-            TimeManager.instance.RegisterRoomScan(node);
-        }
-    }
-
-    public void ChangeNodeState(int id, bool active) { ChangeNodeState(GetWebNode(id), active); }
-    public void ChangeNodeState(string name, bool active) { ChangeNodeState(GetWebNode(name), active); }
-    public void ChangeNodeState(WebNode node, bool active)
+    public void LockNode(int id, bool value) { LockNode(GetWebNode(id), value); }
+    public void LockNode(string name, bool value) { LockNode(GetWebNode(name), value); }
+    public void LockNode(WebNode node, bool value)
     {
         if (node != null)
         {
-            node.active = active;
-            foreach (int connectionId in node.connections)
+            if (value)
             {
-                WebNode connection = GetWebNode(connectionId);
-                if (connection != null)
+                lockedNodes.Add(node);
+            }
+            else
+            {
+                lockedNodes.Remove(node);
+            }
+
+            node.playerLocked = value;
+            if (value)
+            {
+                // Free to lock all connected nodes
+                foreach (int connectionId in node.connections)
                 {
-                    connection.active = active;
+                    WebNode connection = GetWebNode(connectionId);
+                    if (connection != null)
+                    {
+                        connection.playerLocked = true;
+                    }
+                }
+            }
+            else
+            {
+                // Must ensure connected nodes aren't locked by other things before unlocking them
+                foreach (int connectionId in node.connections)
+                {
+                    bool shared = false;
+                    foreach (WebNode lockedNode in lockedNodes)
+                    {
+                        if (lockedNode.connections.Contains(connectionId))
+                        {
+                            shared = true;
+                            break;
+                        }
+                    }
+
+                    if (!shared)
+                    {
+                        WebNode connection = GetWebNode(connectionId);
+                        if (connection != null)
+                        {
+                            connection.playerLocked = false;
+                        }
+                    }
                 }
             }
         }

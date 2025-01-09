@@ -61,7 +61,7 @@ public class GuardScriptEditor : Editor
     private void OnSceneGUI()
     {
         GuardScript component = (GuardScript)target;
-        PathWeb pathWeb = component.pathWeb;
+        PathWeb pathWeb = GameManager.instance.pathWeb;
 
         if (pathWeb)
         {
@@ -70,7 +70,7 @@ public class GuardScriptEditor : Editor
             Handles.color = handleColor;
 
             // For each node
-            for (int i = 0; i < component.pathWeb.nodes.Count; i++)
+            for (int i = 0; i < GameManager.instance.pathWeb.nodes.Count; i++)
             {
                 PathWeb.WebNode node1 = pathWeb.nodes[i];
                 Handles.color = node1.Equals(selectedNode) ? selectedHandleColor : handleColor;

@@ -21,7 +21,7 @@ public class RoomDictionary : MonoBehaviour
     {
         public string nodeName;
         public NodeType type;
-        public string unlockKey;
+        public string unlockKey = "";
         [HideInInspector]
         public Vector2Int centerCell;
         [HideInInspector]
@@ -38,7 +38,6 @@ public class RoomDictionary : MonoBehaviour
         public bool showName;
     }
 
-    public PathWeb pathWeb;
     public TileBase lightTile;
     public TileBase darkTile;
     public List<NodeTilemap> tilemaps = new List<NodeTilemap>();
@@ -48,7 +47,7 @@ public class RoomDictionary : MonoBehaviour
     [InspectorButton("Generate Node List")]
     private void GenerateNodeList()
     {
-        foreach (PathWeb.WebNode webNode in pathWeb.nodes)
+        foreach (PathWeb.WebNode webNode in GameManager.instance.pathWeb.nodes)
         {
             bool exists = false;
             foreach (NodeData nodeData in nodes)
@@ -74,7 +73,7 @@ public class RoomDictionary : MonoBehaviour
     {
         for (int i = 0; i < nodes.Count; i++)
         {
-            PathWeb.WebNode node = pathWeb.GetWebNode(nodes[i].nodeName);
+            PathWeb.WebNode node = GameManager.instance.pathWeb.GetWebNode(nodes[i].nodeName);
             nodes[i].webNode = node;
             if (node != null)
             {
@@ -216,7 +215,7 @@ public class RoomDictionary : MonoBehaviour
         NodeData node = GetNode(roomName);
         if (node != null)
         {
-            pathWeb.ChangeNodeState(roomName, false);
+            GameManager.instance.pathWeb.LockNode(roomName, false);
             ChangeRoomLight(node, false);
         }
     }
@@ -226,9 +225,9 @@ public class RoomDictionary : MonoBehaviour
         NodeData node = GetNode(roomName);
         if (node != null)
         {
-            pathWeb.ChangeNodeState(roomName, true);
+            GameManager.instance.pathWeb.LockNode(roomName, true);
             ChangeRoomLight(node, true);
-            TimeManager.instance.TriggerGuardsInRoom(roomName);
+            GameManager.instance.TriggerGuardsInRoom(roomName);
         }
     }
 
@@ -260,16 +259,33 @@ public class RoomDictionary : MonoBehaviour
         }
     }
 
-    public static IEnumerator RefreshTilesAsync(Tilemap tilemap, List<Vector2Int> cells)
+    const int maxCellsPerFrame = 5;
+    public static IEnumerator RefreshTilesAsync(Tilemap tilemap, List<Vector2Int> cells, int turnDuration = 0)
     {
+        yield return null;
+        float turnProgress = TimeManager.instance.timeElapsed / TimeManager.actionTime;
+        int cellProgress = Mathf.FloorToInt(turnProgress * cells.Count / turnDuration);
         for (int i = 0; i < cells.Count; i++)
         {
-            Vector3Int cell = (Vector3Int)cells[i];
-            tilemap.RefreshTile(cell);
+            bool wait;
+            if (turnDuration > 0 && i >= cellProgress)
+            {
+                i--;
+                wait = true;
+            }
+            else
+            {
+                Vector3Int cell = (Vector3Int)cells[i];
+                tilemap.RefreshTile(cell);
+                wait = (i % maxCellsPerFrame == maxCellsPerFrame - 1);
+            }
 
-            if (i % 5 == 4)
+            if (wait)
             {
                 yield return null;
+                float turnPercent = TimeManager.instance.timeElapsed / TimeManager.actionTime;
+                turnProgress = Mathf.Floor(turnProgress) + turnPercent + (turnProgress % 1 > turnPercent ? 1 : 0);
+                cellProgress = Mathf.FloorToInt(turnProgress * cells.Count / turnDuration);
             }
         }
     }

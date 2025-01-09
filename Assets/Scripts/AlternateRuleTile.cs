@@ -16,6 +16,11 @@ public class AlternateRuleTile : RuleTile
         Dark = 0,
         Light = 1
     }
+    public enum ScanStates
+    {
+        NoScan = 0,
+        Scan = 1
+    }
 
     public const string gridInfoKey = "AlternateRuleTile_State";
     readonly static Dictionary<ITilemap, GridInformation> gridInfoMap = new Dictionary<ITilemap, GridInformation>();
