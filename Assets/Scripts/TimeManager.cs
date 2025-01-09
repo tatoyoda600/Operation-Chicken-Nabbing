@@ -32,6 +32,11 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        instance = null;
+    }
+
     public void FreezeTimer(bool freeze)
     {
         anim.speed = freeze ? 0 : 1.0f / actionTime;

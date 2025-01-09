@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
             _instance = _instance ?? FindObjectOfType<GameManager>();
             return _instance;
         }
-        set {}
+        set
+        {
+            _instance = value;
+        }
     }
 #else
     public static GameManager instance;
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+#if !UNITY_EDITOR
         if (instance)
         {
             Debug.LogError("Duplicate GameManagers");
@@ -42,6 +46,12 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+#endif
+    }
+
+    private void OnDestroy()
+    {
+        instance = null;
     }
 
     public void RegisterGuard(GuardScript guardObj)
