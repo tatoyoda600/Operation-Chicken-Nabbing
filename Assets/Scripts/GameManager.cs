@@ -5,7 +5,20 @@ using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
+#if UNITY_EDITOR
+    static GameManager _instance;
+    public static GameManager instance
+    {
+        get
+        {
+            _instance = _instance ?? FindObjectOfType<GameManager>();
+            return _instance;
+        }
+        set {}
+    }
+#else
     public static GameManager instance;
+#endif
 
     public Tilemap groundTilemap;
     public Tilemap collisionTilemap;

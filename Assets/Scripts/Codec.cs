@@ -137,6 +137,8 @@ public class Codec : MonoBehaviour
     Image image;
     Animator neuroAnim;
     readonly List<RoomAction> roomActions = new List<RoomAction>();
+    bool inTurn = false;
+    System.Action afterTurnAction;
 
     private void Awake()
     {
@@ -149,6 +151,7 @@ public class Codec : MonoBehaviour
 
     void TurnUpdate()
     {
+        inTurn = true;
         CodecCooldown();
 
         for (int i = 0; i < roomActions.Count; i++)
@@ -161,6 +164,8 @@ public class Codec : MonoBehaviour
                 i--;
             }
         }
+        afterTurnAction?.Invoke();
+        inTurn = false;
     }
 
     public void InputLetter(string letter)
@@ -213,7 +218,19 @@ public class Codec : MonoBehaviour
             WebNode node = GameManager.instance.pathWeb.GetWebNode(roomName);
             if (node != null)
             {
-                ExecuteRoomAction<ScanAction>(node);
+                if (inTurn)
+                {
+                    // If currently in the middle of TurnUpdate, delay the execution until the end of it, to prevent race conditions
+                    afterTurnAction = () => {
+                        ExecuteRoomAction<ScanAction>(node);
+                        disabledTurns = turnCooldown;
+                        afterTurnAction = null;
+                    };
+                }
+                else
+                {
+                    ExecuteRoomAction<ScanAction>(node);
+                }
 
                 // Disable codec screen
                 for (int i = 0; i < buttons.transform.childCount; i++)
@@ -256,7 +273,13 @@ public class Codec : MonoBehaviour
                 {
                     if (!roomAction.RepeatAction())
                     {
+                        // The existing action was cleared out
                         roomActions.RemoveAt(i);
+                    }
+                    else
+                    {
+                        // The existing action was updated
+                        return;
                     }
                     break;
                 }
