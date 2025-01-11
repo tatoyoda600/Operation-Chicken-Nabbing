@@ -47,6 +47,11 @@ public class TestMovement : MonoBehaviour
 
         playerInput.Interaction.Click.performed += (_) =>
         {
+            if (GameManager.instance.paused)
+            {
+                return;
+            }
+
             Vector3 pos = Camera.main.ScreenToWorldPoint(playerInput.Interaction.MousePosition.ReadValue<Vector2>());
             Vector3Int gridPos = GameManager.instance.interactionTilemap.WorldToCell(pos);
             if (!noInput && GameManager.instance.interactionTilemap.HasTile(gridPos))
@@ -71,6 +76,11 @@ public class TestMovement : MonoBehaviour
             }
         };
 
+        playerInput.Hotkeys.Pause.performed += (_) =>
+        {
+            GameManager.instance.PauseGame(!GameManager.instance.paused);
+        };
+
         noInput = false;
         freePosition = transform.position;
         unitsPerPixel = 1.0f / sprite.sprite.pixelsPerUnit;
@@ -89,6 +99,11 @@ public class TestMovement : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.paused)
+        {
+            return;
+        }
+
         OnMove((Vector2Int)GameManager.instance.groundTilemap.WorldToCell(destination));
     }
 

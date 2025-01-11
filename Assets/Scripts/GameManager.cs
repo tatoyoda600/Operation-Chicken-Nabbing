@@ -31,8 +31,14 @@ public class GameManager : MonoBehaviour
 
     public PathWeb pathWeb;
     public RoomDictionary roomDictionary;
+    public GameObject pauseMenu;
 
     readonly List<GuardScript> guards = new List<GuardScript>();
+    public bool paused
+    {
+        get;
+        private set;
+    } = false;
 
     private void Awake()
     {
@@ -94,5 +100,13 @@ public class GameManager : MonoBehaviour
                 guard.CatchPlayer();
             }
         }
+    }
+
+    public void PauseGame(bool pause)
+    {
+        Debug.Log(pause ? "PAUSING" : "UNPAUSING");
+        paused = pause;
+        TimeManager.instance.FreezeTimer(pause);
+        pauseMenu.SetActive(pause);
     }
 }

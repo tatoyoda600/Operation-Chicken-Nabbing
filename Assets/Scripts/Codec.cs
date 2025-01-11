@@ -122,8 +122,6 @@ public class Codec : MonoBehaviour
     public Sprite regularCodec;
     public Sprite disabledCodec;
     public GameObject neuro;
-    public AudioClip keyDownSound;
-    public AudioClip keyUpSound;
     public AudioClip scanSound;
     public Sprite markerSprite;
 
@@ -133,7 +131,6 @@ public class Codec : MonoBehaviour
     const int turnCooldown = 1;
 
     AudioSource source;
-    AudioSource buttonSource;
     Image image;
     Animator neuroAnim;
     readonly List<RoomAction> roomActions = new List<RoomAction>();
@@ -143,7 +140,6 @@ public class Codec : MonoBehaviour
     private void Awake()
     {
         source = gameObject.GetComponent<AudioSource>();
-        buttonSource = buttons.GetComponent<AudioSource>();
         image = gameObject.GetComponent<Image>();
         neuroAnim = neuro.GetComponent<Animator>();
         TimeManager.instance.OnTurnStart += TurnUpdate;
@@ -183,27 +179,6 @@ public class Codec : MonoBehaviour
         {
             curNumber = number;
             CallNeuro();
-        }
-    }
-
-    public void PlaySoundDown()
-    {
-        buttonSource.time = 0;
-        buttonSource.clip = keyDownSound;
-        buttonSource.Play();
-    }
-
-    public void PlaySoundUp()
-    {
-        buttonSource.clip = keyUpSound;
-        if (buttonSource.isPlaying)
-        {
-            buttonSource.PlayDelayed(source.clip.length - source.time);
-        }
-        else
-        {
-            buttonSource.time = 0;
-            buttonSource.Play();
         }
     }
 

@@ -70,6 +70,34 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Hotkeys"",
+            ""id"": ""cd3b4400-e093-4863-9de5-fb43933ce721"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c21a3e7-47cc-4b54-93b9-07677ff7e1d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f9da7780-d0a1-40f2-bd7d-ee3053ca85f9"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -78,6 +106,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Interaction = asset.FindActionMap("Interaction", throwIfNotFound: true);
         m_Interaction_Click = m_Interaction.FindAction("Click", throwIfNotFound: true);
         m_Interaction_MousePosition = m_Interaction.FindAction("Mouse Position", throwIfNotFound: true);
+        // Hotkeys
+        m_Hotkeys = asset.FindActionMap("Hotkeys", throwIfNotFound: true);
+        m_Hotkeys_Pause = m_Hotkeys.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -189,9 +220,59 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public InteractionActions @Interaction => new InteractionActions(this);
+
+    // Hotkeys
+    private readonly InputActionMap m_Hotkeys;
+    private List<IHotkeysActions> m_HotkeysActionsCallbackInterfaces = new List<IHotkeysActions>();
+    private readonly InputAction m_Hotkeys_Pause;
+    public struct HotkeysActions
+    {
+        private @PlayerInput m_Wrapper;
+        public HotkeysActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_Hotkeys_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Hotkeys; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HotkeysActions set) { return set.Get(); }
+        public void AddCallbacks(IHotkeysActions instance)
+        {
+            if (instance == null || m_Wrapper.m_HotkeysActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_HotkeysActionsCallbackInterfaces.Add(instance);
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+        }
+
+        private void UnregisterCallbacks(IHotkeysActions instance)
+        {
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+        }
+
+        public void RemoveCallbacks(IHotkeysActions instance)
+        {
+            if (m_Wrapper.m_HotkeysActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IHotkeysActions instance)
+        {
+            foreach (var item in m_Wrapper.m_HotkeysActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_HotkeysActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public HotkeysActions @Hotkeys => new HotkeysActions(this);
     public interface IInteractionActions
     {
         void OnClick(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+    }
+    public interface IHotkeysActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -13,13 +13,22 @@ public class MusicTracks : MonoBehaviour
 
     public AudioSource audioSource;
     public List<MusicClip> tracks;
+    static MusicTracks instance;
     int nextIndex = 0;
     Camera mainCamera = null;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-        NextTrack();
+        if (!instance || instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+            NextTrack();
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 
     void NextTrack()
