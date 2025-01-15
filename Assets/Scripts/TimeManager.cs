@@ -5,10 +5,10 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public static TimeManager instance;
-    public const float actionTime = 2;
-    public AudioClip scanSound;
+    public float actionTime = 2;
+    public const string TIME_SCALE_PREF = "TimeScale";
 
-    public float timeElapsed = 0;
+    public float timeElapsed { get; private set; } = 0;
     bool frozen = false;
     Animator anim;
 
@@ -27,6 +27,11 @@ public class TimeManager : MonoBehaviour
         {
             instance = this;
             anim = gameObject.GetComponent<Animator>();
+            float storedTimeScale = PlayerPrefs.GetFloat(TIME_SCALE_PREF, float.MinValue);
+            if (storedTimeScale > float.MinValue)
+            {
+                ChangeTimeScale(ButtonHandler.ScaleTimeScaleSliderValue(storedTimeScale));
+            }
             FreezeTimer(false);
             AlternateRuleTile.ClearMaps();
         }
@@ -49,13 +54,26 @@ public class TimeManager : MonoBehaviour
         {
             timeElapsed += Time.deltaTime;
 
-            if (timeElapsed > actionTime)
+            if (timeElapsed >= actionTime)
             {
-                OnTurnStart?.Invoke();
-                anim.Play("Animation", -1, 0);
-                timeElapsed -= actionTime;
-                AfterTurnStart?.Invoke();
+                EndTurn();
             }
         }
+    }
+
+    public void EndTurn()
+    {
+        OnTurnStart?.Invoke();
+        anim.Play("Animation", -1, 0);
+        timeElapsed = timeElapsed >= actionTime ? timeElapsed - actionTime : 0.0f;
+        AfterTurnStart?.Invoke();
+    }
+
+    public void ChangeTimeScale(float scale)
+    {
+        float percentage = timeElapsed / actionTime;
+        actionTime = scale;
+        timeElapsed = percentage * actionTime;
+        anim.speed = frozen ? 0 : 1.0f / actionTime;
     }
 }

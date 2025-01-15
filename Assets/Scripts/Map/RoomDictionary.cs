@@ -263,7 +263,7 @@ public class RoomDictionary : MonoBehaviour
     public static IEnumerator RefreshTilesAsync(Tilemap tilemap, List<Vector2Int> cells, int turnDuration = 0)
     {
         yield return null;
-        float turnProgress = TimeManager.instance.timeElapsed / TimeManager.actionTime;
+        float turnProgress = TimeManager.instance.timeElapsed / TimeManager.instance.actionTime;
         int cellProgress = Mathf.FloorToInt(turnProgress * cells.Count / turnDuration);
         for (int i = 0; i < cells.Count; i++)
         {
@@ -283,7 +283,7 @@ public class RoomDictionary : MonoBehaviour
             if (wait)
             {
                 yield return null;
-                float turnPercent = TimeManager.instance.timeElapsed / TimeManager.actionTime;
+                float turnPercent = TimeManager.instance.timeElapsed / TimeManager.instance.actionTime;
                 turnProgress = Mathf.Floor(turnProgress) + turnPercent + (turnProgress % 1 > turnPercent ? 1 : 0);
                 cellProgress = Mathf.FloorToInt(turnProgress * cells.Count / turnDuration);
             }

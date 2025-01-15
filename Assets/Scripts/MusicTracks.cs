@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicTracks : MonoBehaviour
 {
@@ -12,10 +13,15 @@ public class MusicTracks : MonoBehaviour
     }
 
     public AudioSource audioSource;
+    public AudioMixer mixer;
     public List<MusicClip> tracks;
     static MusicTracks instance;
     int nextIndex = 0;
     Camera mainCamera = null;
+
+    public const string MASTER_CHANNEL = "MasterVolume";
+    public const string MUSIC_CHANNEL = "MusicVolume";
+    public const string SFX_CHANNEL = "SFXVolume";
 
     private void Awake()
     {
@@ -29,6 +35,13 @@ public class MusicTracks : MonoBehaviour
         {
             Destroy(this);
         }
+    }
+
+    private void Start()
+    {
+        RestoreMixerValue(MASTER_CHANNEL);
+        RestoreMixerValue(MUSIC_CHANNEL);
+        RestoreMixerValue(SFX_CHANNEL);
     }
 
     void NextTrack()
@@ -48,5 +61,11 @@ public class MusicTracks : MonoBehaviour
             mainCamera = Camera.main;
         }
         transform.position = mainCamera.transform.position;
+    }
+
+    void RestoreMixerValue(string channel)
+    {
+        float value = PlayerPrefs.GetFloat(channel, 100);
+        mixer.SetFloat(channel, ButtonHandler.ScaleVolumeSliderValue(value));
     }
 }

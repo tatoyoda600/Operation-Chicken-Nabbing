@@ -104,7 +104,6 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame(bool pause)
     {
-        Debug.Log(pause ? "PAUSING" : "UNPAUSING");
         paused = pause;
         TimeManager.instance.FreezeTimer(pause);
         pauseMenu.SetActive(pause);
