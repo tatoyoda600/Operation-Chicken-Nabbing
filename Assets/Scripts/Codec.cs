@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using static PathWeb;
@@ -118,12 +120,20 @@ public class Codec : MonoBehaviour
         }
     }
 
+    [System.Serializable]
+    public struct CodecButton
+    {
+        public InputActionReference inputAction;
+        public Button obj;
+    }
+
     public GameObject buttons;
     public Sprite regularCodec;
     public Sprite disabledCodec;
     public GameObject neuro;
     public AudioClip scanSound;
     public Sprite markerSprite;
+    public List<CodecButton> codecButtons;
 
     string curLetter = null;
     string curNumber = null;
@@ -143,6 +153,25 @@ public class Codec : MonoBehaviour
         image = gameObject.GetComponent<Image>();
         neuroAnim = neuro.GetComponent<Animator>();
         TimeManager.instance.OnTurnStart += TurnUpdate;
+    }
+
+    public void InputSetup(PlayerInput playerInput)
+    {
+        EventSystem eventSystem = EventSystem.current;
+        foreach (CodecButton codecBtn in codecButtons)
+        {
+            GameObject obj = codecBtn.obj.gameObject;
+            playerInput.FindAction(codecBtn.inputAction.action.name).started += (_) =>
+            {
+                ExecuteEvents.Execute(obj, new PointerEventData(eventSystem), ExecuteEvents.pointerDownHandler);
+            };
+            playerInput.FindAction(codecBtn.inputAction.action.name).canceled += (_) =>
+            {
+                PointerEventData data = new PointerEventData(eventSystem);
+                ExecuteEvents.Execute(obj, data, ExecuteEvents.pointerClickHandler);
+                ExecuteEvents.Execute(obj, data, ExecuteEvents.pointerUpHandler);
+            };
+        }
     }
 
     void TurnUpdate()

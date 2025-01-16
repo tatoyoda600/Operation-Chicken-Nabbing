@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public PathWeb pathWeb;
     public RoomDictionary roomDictionary;
     public GameObject pauseMenu;
+    public TestMovement player;
 
     readonly List<GuardScript> guards = new List<GuardScript>();
     public bool paused
@@ -107,5 +108,10 @@ public class GameManager : MonoBehaviour
         paused = pause;
         TimeManager.instance.FreezeTimer(pause);
         pauseMenu.SetActive(pause);
+    }
+
+    public PlayerInput GetInputSystem()
+    {
+        return player.playerInput;
     }
 }

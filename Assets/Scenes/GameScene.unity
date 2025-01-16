@@ -868,6 +868,7 @@ MonoBehaviour:
   endScene: Ending
   doorSound: {fileID: 8300000, guid: c9a3573251e95d1449811c652760eab7, type: 3}
   keyHolder: {fileID: 53440722}
+  codec: {fileID: 1421028120}
 --- !u!95 &284675039
 Animator:
   serializedVersion: 5
@@ -4400,6 +4401,7 @@ MonoBehaviour:
   keyUpSound: {fileID: 8300000, guid: 406537790f517514fab11191a126429c, type: 3}
   buttonSource: {fileID: 479516730}
   mixer: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!1 &495214659
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,6 +4762,7 @@ MonoBehaviour:
   keyUpSound: {fileID: 8300000, guid: 406537790f517514fab11191a126429c, type: 3}
   buttonSource: {fileID: 509085791}
   mixer: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,8 +4862,8 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.615625
-    y: -0.108333334
+    x: 0
+    y: 0
     width: 1
     height: 1
   near clip plane: 0.3
@@ -17147,6 +17150,27 @@ MonoBehaviour:
   neuro: {fileID: 535933692}
   scanSound: {fileID: 8300000, guid: 1d70535f60c1dc140b75b8ebea75054b, type: 3}
   markerSprite: {fileID: 136863208, guid: 6ea61b88b7e175d4bab3fe6ec1c04d4a, type: 3}
+  codecButtons:
+  - inputAction: {fileID: 6292989165285338880, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 309512217}
+  - inputAction: {fileID: 2345839787349186163, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 1270835957}
+  - inputAction: {fileID: -8802782816397784639, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 1920292213}
+  - inputAction: {fileID: -645860058795034319, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 2018383750}
+  - inputAction: {fileID: -424558415325027396, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 207741273}
+  - inputAction: {fileID: -7647453986053823826, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 467674520}
+  - inputAction: {fileID: 3859558438005118245, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 1101491419}
+  - inputAction: {fileID: 1725150079026576665, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 1049141846}
+  - inputAction: {fileID: -8715373811820107462, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 620290231}
+  - inputAction: {fileID: -2883022277936028249, guid: fc1ed4dd76b9b7f4c9feb5c0b680bcbd, type: 3}
+    obj: {fileID: 579904887}
 --- !u!114 &1421028121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49668,6 +49692,7 @@ MonoBehaviour:
   pathWeb: {fileID: 1984279479}
   roomDictionary: {fileID: 1984279478}
   pauseMenu: {fileID: 806021879}
+  player: {fileID: 284675038}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 
 public class TestMovement : MonoBehaviour
 {
@@ -14,10 +14,11 @@ public class TestMovement : MonoBehaviour
     public string endScene;
     public AudioClip doorSound;
     public GameObject keyHolder;
+    public Codec codec;
 
     const string CONSUMED_INTERACTION = "CONSUMED_INTERACTION";
 
-    PlayerInput playerInput;
+    public PlayerInput playerInput { get; private set; }
     string currentRoom;
     Vector2 destination = Vector2.zero;
     bool noInput = true;
@@ -34,6 +35,13 @@ public class TestMovement : MonoBehaviour
     private void Awake()
     {
         playerInput = new PlayerInput();
+        string keyMapping = PlayerPrefs.GetString(KeyMapper.KEY_MAPPINGS_PREF, null);
+        if (!string.IsNullOrEmpty(keyMapping))
+        {
+            playerInput.asset.LoadBindingOverridesFromJson(keyMapping);
+        }
+        codec.InputSetup(playerInput);
+
         anim = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
         sprite.flipX = true;

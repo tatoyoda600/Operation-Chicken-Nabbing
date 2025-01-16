@@ -83,6 +83,96 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CodecA"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9060cd8-4e58-4fe2-a641-91d67c2f0c32"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CodecB"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f481559-2b12-4579-8e91-8c7636f1306a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CodecC"",
+                    ""type"": ""Button"",
+                    ""id"": ""8fdbacd9-bb5c-4aa8-8dcb-3cd6cf1e4ee3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CodecD"",
+                    ""type"": ""Button"",
+                    ""id"": ""8bdfbd50-5fce-41d8-8dbe-366865919e21"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CodecE"",
+                    ""type"": ""Button"",
+                    ""id"": ""0396654f-8a06-48ad-ad4b-97f4adefa1ca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Codec1"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5c3e2fc-766a-4d2d-8d85-daf6d13835f9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Codec2"",
+                    ""type"": ""Button"",
+                    ""id"": ""325fedce-8d5f-4c3c-820e-b0634caffbdc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Codec3"",
+                    ""type"": ""Button"",
+                    ""id"": ""74d74ccf-2926-4a8b-8368-7180fff1f52c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Codec4"",
+                    ""type"": ""Button"",
+                    ""id"": ""0af6578d-c61b-48a7-a9a1-6ab7fa3e8926"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Codec5"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a643d0b-321b-4115-8740-4b6216eb7081"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -94,6 +184,116 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""088a715e-e38b-43ec-8eae-6dc7ac581bf7"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CodecA"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""525ff3b4-cc4b-4131-a252-b66759f50368"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CodecB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44a611b5-ba3d-442e-bd09-d85659f12bac"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CodecC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fec12e3-c286-4c52-992f-996bcf69a003"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CodecD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34c7c407-0819-4ffa-9300-30167a96fa4a"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CodecE"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9a53941-99cb-487f-94b1-96da4fbc0de8"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Codec1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25b009a1-a032-40f8-98ba-03f7962fc96f"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Codec2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5de885e9-1aff-4bba-965f-02dd61c421c3"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Codec3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6bf6289-abf4-4947-b4a2-80e08469613c"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Codec4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13724211-4dcf-487c-b574-e8d81c732652"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Codec5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -109,6 +309,16 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Hotkeys
         m_Hotkeys = asset.FindActionMap("Hotkeys", throwIfNotFound: true);
         m_Hotkeys_Pause = m_Hotkeys.FindAction("Pause", throwIfNotFound: true);
+        m_Hotkeys_CodecA = m_Hotkeys.FindAction("CodecA", throwIfNotFound: true);
+        m_Hotkeys_CodecB = m_Hotkeys.FindAction("CodecB", throwIfNotFound: true);
+        m_Hotkeys_CodecC = m_Hotkeys.FindAction("CodecC", throwIfNotFound: true);
+        m_Hotkeys_CodecD = m_Hotkeys.FindAction("CodecD", throwIfNotFound: true);
+        m_Hotkeys_CodecE = m_Hotkeys.FindAction("CodecE", throwIfNotFound: true);
+        m_Hotkeys_Codec1 = m_Hotkeys.FindAction("Codec1", throwIfNotFound: true);
+        m_Hotkeys_Codec2 = m_Hotkeys.FindAction("Codec2", throwIfNotFound: true);
+        m_Hotkeys_Codec3 = m_Hotkeys.FindAction("Codec3", throwIfNotFound: true);
+        m_Hotkeys_Codec4 = m_Hotkeys.FindAction("Codec4", throwIfNotFound: true);
+        m_Hotkeys_Codec5 = m_Hotkeys.FindAction("Codec5", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -225,11 +435,31 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Hotkeys;
     private List<IHotkeysActions> m_HotkeysActionsCallbackInterfaces = new List<IHotkeysActions>();
     private readonly InputAction m_Hotkeys_Pause;
+    private readonly InputAction m_Hotkeys_CodecA;
+    private readonly InputAction m_Hotkeys_CodecB;
+    private readonly InputAction m_Hotkeys_CodecC;
+    private readonly InputAction m_Hotkeys_CodecD;
+    private readonly InputAction m_Hotkeys_CodecE;
+    private readonly InputAction m_Hotkeys_Codec1;
+    private readonly InputAction m_Hotkeys_Codec2;
+    private readonly InputAction m_Hotkeys_Codec3;
+    private readonly InputAction m_Hotkeys_Codec4;
+    private readonly InputAction m_Hotkeys_Codec5;
     public struct HotkeysActions
     {
         private @PlayerInput m_Wrapper;
         public HotkeysActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_Hotkeys_Pause;
+        public InputAction @CodecA => m_Wrapper.m_Hotkeys_CodecA;
+        public InputAction @CodecB => m_Wrapper.m_Hotkeys_CodecB;
+        public InputAction @CodecC => m_Wrapper.m_Hotkeys_CodecC;
+        public InputAction @CodecD => m_Wrapper.m_Hotkeys_CodecD;
+        public InputAction @CodecE => m_Wrapper.m_Hotkeys_CodecE;
+        public InputAction @Codec1 => m_Wrapper.m_Hotkeys_Codec1;
+        public InputAction @Codec2 => m_Wrapper.m_Hotkeys_Codec2;
+        public InputAction @Codec3 => m_Wrapper.m_Hotkeys_Codec3;
+        public InputAction @Codec4 => m_Wrapper.m_Hotkeys_Codec4;
+        public InputAction @Codec5 => m_Wrapper.m_Hotkeys_Codec5;
         public InputActionMap Get() { return m_Wrapper.m_Hotkeys; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -242,6 +472,36 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @CodecA.started += instance.OnCodecA;
+            @CodecA.performed += instance.OnCodecA;
+            @CodecA.canceled += instance.OnCodecA;
+            @CodecB.started += instance.OnCodecB;
+            @CodecB.performed += instance.OnCodecB;
+            @CodecB.canceled += instance.OnCodecB;
+            @CodecC.started += instance.OnCodecC;
+            @CodecC.performed += instance.OnCodecC;
+            @CodecC.canceled += instance.OnCodecC;
+            @CodecD.started += instance.OnCodecD;
+            @CodecD.performed += instance.OnCodecD;
+            @CodecD.canceled += instance.OnCodecD;
+            @CodecE.started += instance.OnCodecE;
+            @CodecE.performed += instance.OnCodecE;
+            @CodecE.canceled += instance.OnCodecE;
+            @Codec1.started += instance.OnCodec1;
+            @Codec1.performed += instance.OnCodec1;
+            @Codec1.canceled += instance.OnCodec1;
+            @Codec2.started += instance.OnCodec2;
+            @Codec2.performed += instance.OnCodec2;
+            @Codec2.canceled += instance.OnCodec2;
+            @Codec3.started += instance.OnCodec3;
+            @Codec3.performed += instance.OnCodec3;
+            @Codec3.canceled += instance.OnCodec3;
+            @Codec4.started += instance.OnCodec4;
+            @Codec4.performed += instance.OnCodec4;
+            @Codec4.canceled += instance.OnCodec4;
+            @Codec5.started += instance.OnCodec5;
+            @Codec5.performed += instance.OnCodec5;
+            @Codec5.canceled += instance.OnCodec5;
         }
 
         private void UnregisterCallbacks(IHotkeysActions instance)
@@ -249,6 +509,36 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @CodecA.started -= instance.OnCodecA;
+            @CodecA.performed -= instance.OnCodecA;
+            @CodecA.canceled -= instance.OnCodecA;
+            @CodecB.started -= instance.OnCodecB;
+            @CodecB.performed -= instance.OnCodecB;
+            @CodecB.canceled -= instance.OnCodecB;
+            @CodecC.started -= instance.OnCodecC;
+            @CodecC.performed -= instance.OnCodecC;
+            @CodecC.canceled -= instance.OnCodecC;
+            @CodecD.started -= instance.OnCodecD;
+            @CodecD.performed -= instance.OnCodecD;
+            @CodecD.canceled -= instance.OnCodecD;
+            @CodecE.started -= instance.OnCodecE;
+            @CodecE.performed -= instance.OnCodecE;
+            @CodecE.canceled -= instance.OnCodecE;
+            @Codec1.started -= instance.OnCodec1;
+            @Codec1.performed -= instance.OnCodec1;
+            @Codec1.canceled -= instance.OnCodec1;
+            @Codec2.started -= instance.OnCodec2;
+            @Codec2.performed -= instance.OnCodec2;
+            @Codec2.canceled -= instance.OnCodec2;
+            @Codec3.started -= instance.OnCodec3;
+            @Codec3.performed -= instance.OnCodec3;
+            @Codec3.canceled -= instance.OnCodec3;
+            @Codec4.started -= instance.OnCodec4;
+            @Codec4.performed -= instance.OnCodec4;
+            @Codec4.canceled -= instance.OnCodec4;
+            @Codec5.started -= instance.OnCodec5;
+            @Codec5.performed -= instance.OnCodec5;
+            @Codec5.canceled -= instance.OnCodec5;
         }
 
         public void RemoveCallbacks(IHotkeysActions instance)
@@ -274,5 +564,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface IHotkeysActions
     {
         void OnPause(InputAction.CallbackContext context);
+        void OnCodecA(InputAction.CallbackContext context);
+        void OnCodecB(InputAction.CallbackContext context);
+        void OnCodecC(InputAction.CallbackContext context);
+        void OnCodecD(InputAction.CallbackContext context);
+        void OnCodecE(InputAction.CallbackContext context);
+        void OnCodec1(InputAction.CallbackContext context);
+        void OnCodec2(InputAction.CallbackContext context);
+        void OnCodec3(InputAction.CallbackContext context);
+        void OnCodec4(InputAction.CallbackContext context);
+        void OnCodec5(InputAction.CallbackContext context);
     }
 }
