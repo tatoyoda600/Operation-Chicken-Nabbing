@@ -150,6 +150,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 147884562}
   - {fileID: 576635067}
   - {fileID: 1686057511}
   - {fileID: 1709847229}
@@ -158,11 +159,261 @@ RectTransform:
   - {fileID: 1015883137}
   m_Father: {fileID: 775813108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1.125}
-  m_AnchoredPosition: {x: 0, y: -12}
+  m_AnchorMin: {x: 0, y: 0.9930556}
+  m_AnchorMax: {x: 1, y: 1.1180556}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &123763408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123763409}
+  - component: {fileID: 123763413}
+  - component: {fileID: 123763412}
+  - component: {fileID: 123763411}
+  - component: {fileID: 123763410}
+  m_Layer: 0
+  m_Name: ButtonCancel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &123763409
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123763408}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1909509375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.578125, y: 0}
+  m_AnchorMax: {x: 0.921875, y: 0.4583333}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &123763410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123763408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341139e4f7782c94898ee8c6f55bc9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479516731}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PlaySoundDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  pointerUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479516731}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PlaySoundUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &123763411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123763408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
+    m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 123763412}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: InputAction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Cancel
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &123763412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123763408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &123763413
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123763408}
+  m_CullTransparentMesh: 1
+--- !u!1 &147884561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 147884562}
+  - component: {fileID: 147884564}
+  - component: {fileID: 147884563}
+  m_Layer: 0
+  m_Name: Evil
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &147884562
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147884561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 53440723}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: -0.03125, y: 0.38888893}
+  m_AnchorMax: {x: 0.46875, y: 1.2777779}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &147884563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147884561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1840871998, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &147884564
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147884561}
+  m_CullTransparentMesh: 1
 --- !u!1 &196633031
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,8 +616,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.078125, y: 0.16560525}
-  m_AnchorMax: {x: 0.421875, y: 0.30573258}
+  m_AnchorMin: {x: 0.078125, y: 0.0078125}
+  m_AnchorMax: {x: 0.421875, y: 0.1796875}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -394,7 +645,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -424,6 +675,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: E
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickLetter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 207741273}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &207741274
@@ -762,6 +1025,181 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7961555066327915977, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
   m_PrefabInstance: {fileID: 260983176}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &284634816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 284634817}
+  - component: {fileID: 284634821}
+  - component: {fileID: 284634820}
+  - component: {fileID: 284634819}
+  - component: {fileID: 284634818}
+  m_Layer: 0
+  m_Name: ButtonLure
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &284634817
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284634816}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1909509375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.078125, y: 0}
+  m_AnchorMax: {x: 0.421875, y: 0.4583333}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &284634818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284634816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341139e4f7782c94898ee8c6f55bc9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479516731}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PlaySoundDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  pointerUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479516731}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PlaySoundUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &284634819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284634816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
+    m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 284634820}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: InputAction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Lure
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &284634820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284634816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &284634821
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284634816}
+  m_CullTransparentMesh: 1
 --- !u!1 &284675035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,8 +1633,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.078125, y: 0.82802564}
-  m_AnchorMax: {x: 0.421875, y: 0.96815294}
+  m_AnchorMin: {x: 0.078125, y: 0.8203125}
+  m_AnchorMax: {x: 0.421875, y: 0.9921875}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1224,7 +1662,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1254,6 +1692,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: A
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickLetter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 309512217}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &309512218
@@ -3490,11 +3940,11 @@ PrefabInstance:
       objectReference: {fileID: 1984279479}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
       propertyPath: path.Array.size
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
       propertyPath: path.Array.data[0]
-      value: C1
+      value: C3
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
       propertyPath: path.Array.data[1]
@@ -3502,35 +3952,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
       propertyPath: path.Array.data[2]
-      value: C3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
-      propertyPath: path.Array.data[3]
-      value: C1-C3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
-      propertyPath: path.Array.data[4]
       value: C1
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
-      propertyPath: path.Array.data[5]
+      propertyPath: path.Array.data[3]
       value: B4-C1
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
-      propertyPath: path.Array.data[6]
+      propertyPath: path.Array.data[4]
       value: B4
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
-      propertyPath: path.Array.data[7]
+      propertyPath: path.Array.data[5]
       value: B4-B5
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
-      propertyPath: path.Array.data[8]
+      propertyPath: path.Array.data[6]
       value: B5
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
-      propertyPath: path.Array.data[9]
+      propertyPath: path.Array.data[7]
       value: A4-B5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
+      propertyPath: path.Array.data[8]
+      value: A4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
+      propertyPath: path.Array.data[9]
+      value: A4
       objectReference: {fileID: 0}
     - target: {fileID: 7730263000437497866, guid: ceca65ee9282dec4a936cccf682141e7, type: 3}
       propertyPath: path.Array.data[10]
@@ -4110,8 +4560,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.578125, y: 0.82802564}
-  m_AnchorMax: {x: 0.921875, y: 0.96815294}
+  m_AnchorMin: {x: 0.578125, y: 0.8203125}
+  m_AnchorMax: {x: 0.921875, y: 0.9921875}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4139,7 +4589,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4169,6 +4619,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickNumber
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 467674520}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &467674521
@@ -4282,10 +4744,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1224705017}
+  - {fileID: 1909509375}
   m_Father: {fileID: 775813108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.8632813}
+  m_AnchorMin: {x: 0, y: 0.22222222}
+  m_AnchorMax: {x: 1, y: 0.8819445}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4574,10 +5037,10 @@ RectTransform:
   m_Father: {fileID: 775813108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.22222222}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509085789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5090,13 +5553,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 775813108}
+  m_Father: {fileID: 548290508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.03125, y: 0.86328125}
-  m_AnchorMax: {x: 0.96875, y: 0.9921875}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 6}
+  m_SizeDelta: {x: 192, y: 288}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &535933694
 Animator:
   serializedVersion: 5
@@ -5156,6 +5619,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535933692}
   m_CullTransparentMesh: 1
+--- !u!1 &548290507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 548290508}
+  m_Layer: 0
+  m_Name: Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &548290508
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548290507}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 535933693}
+  m_Father: {fileID: 775813108}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.03125, y: 0.8819445}
+  m_AnchorMax: {x: 0.96875, y: 0.9930556}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &576635066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5168,7 +5667,7 @@ GameObject:
   - component: {fileID: 576635069}
   - component: {fileID: 576635068}
   m_Layer: 0
-  m_Name: Evil
+  m_Name: Key6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5188,8 +5687,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 53440723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: -0.0625, y: 0.3125}
-  m_AnchorMax: {x: 0.4375, y: 1.3125}
+  m_AnchorMin: {x: 0.0625, y: 0.2777778}
+  m_AnchorMax: {x: 0.5625, y: 1.1666667}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5213,7 +5712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1840871998, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+  m_Sprite: {fileID: -1431855300, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5265,8 +5764,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.578125, y: 0.16560525}
-  m_AnchorMax: {x: 0.921875, y: 0.30573258}
+  m_AnchorMin: {x: 0.578125, y: 0.0078125}
+  m_AnchorMax: {x: 0.921875, y: 0.1796875}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5294,7 +5793,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5324,6 +5823,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 5
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickNumber
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 579904887}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &579904888
@@ -5522,8 +6033,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.578125, y: 0.33121037}
-  m_AnchorMax: {x: 0.921875, y: 0.4713377}
+  m_AnchorMin: {x: 0.578125, y: 0.2109375}
+  m_AnchorMax: {x: 0.921875, y: 0.3828125}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5551,7 +6062,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5581,6 +6092,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 4
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickNumber
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 620290231}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &620290232
@@ -5972,12 +6495,12 @@ RectTransform:
   - {fileID: 53440723}
   - {fileID: 1421028118}
   - {fileID: 509085788}
-  - {fileID: 535933693}
+  - {fileID: 548290508}
   - {fileID: 479516729}
   m_Father: {fileID: 371297005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.1, y: 0.7111111}
+  m_AnchorMax: {x: 0.1, y: 0.8}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
@@ -6266,7 +6789,7 @@ GameObject:
   - component: {fileID: 884291822}
   - component: {fileID: 884291821}
   m_Layer: 0
-  m_Name: Vedal
+  m_Name: Anny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6286,8 +6809,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 53440723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4375, y: -0.1875}
-  m_AnchorMax: {x: 0.9375, y: 0.8125}
+  m_AnchorMin: {x: 0.4375, y: -0.16666669}
+  m_AnchorMax: {x: 0.9375, y: 0.72222227}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6311,7 +6834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -651460273, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+  m_Sprite: {fileID: 1923640423, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16084,6 +16607,181 @@ MonoBehaviour:
   m_PositionObjectValues: []
   m_PositionColorKeys: []
   m_PositionColorValues: []
+--- !u!1 &1007013380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007013381}
+  - component: {fileID: 1007013385}
+  - component: {fileID: 1007013384}
+  - component: {fileID: 1007013383}
+  - component: {fileID: 1007013382}
+  m_Layer: 0
+  m_Name: ButtonScan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1007013381
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007013380}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1909509375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.078125, y: 0.5416667}
+  m_AnchorMax: {x: 0.421875, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1007013382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007013380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341139e4f7782c94898ee8c6f55bc9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479516731}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PlaySoundDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  pointerUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479516731}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PlaySoundUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1007013383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007013380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
+    m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1007013384}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: InputAction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Scan
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1007013384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007013380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1007013385
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007013380}
+  m_CullTransparentMesh: 1
 --- !u!1 &1015883136
 GameObject:
   m_ObjectHideFlags: 0
@@ -16096,7 +16794,7 @@ GameObject:
   - component: {fileID: 1015883139}
   - component: {fileID: 1015883138}
   m_Layer: 0
-  m_Name: Anny
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16116,8 +16814,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 53440723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5625, y: -0.3125}
-  m_AnchorMax: {x: 1.0625, y: 0.6875}
+  m_AnchorMin: {x: 0.53125, y: -0.2777778}
+  m_AnchorMax: {x: 1.03125, y: 0.61111116}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16141,7 +16839,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1923640423, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+  m_Sprite: {fileID: -1422038221, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -16193,8 +16891,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.578125, y: 0.49681535}
-  m_AnchorMax: {x: 0.921875, y: 0.6369428}
+  m_AnchorMin: {x: 0.578125, y: 0.4140625}
+  m_AnchorMax: {x: 0.921875, y: 0.5859375}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16222,7 +16920,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -16252,6 +16950,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 3
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickNumber
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1049141846}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1049141847
@@ -16502,8 +17212,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.578125, y: 0.6624205}
-  m_AnchorMax: {x: 0.921875, y: 0.8025478}
+  m_AnchorMin: {x: 0.578125, y: 0.6171875}
+  m_AnchorMax: {x: 0.921875, y: 0.7890625}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16531,7 +17241,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -16561,6 +17271,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 2
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickNumber
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1101491419}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1101491420
@@ -16683,8 +17405,8 @@ RectTransform:
   - {fileID: 579904886}
   m_Father: {fileID: 479516729}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.3052631}
+  m_AnchorMax: {x: 1, y: 0.97894734}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16856,8 +17578,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.078125, y: 0.6624205}
-  m_AnchorMax: {x: 0.421875, y: 0.8025478}
+  m_AnchorMin: {x: 0.078125, y: 0.6171875}
+  m_AnchorMax: {x: 0.421875, y: 0.7890625}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16885,7 +17607,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -16915,6 +17637,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: B
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickLetter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1270835957}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1270835958
@@ -16997,6 +17731,181 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1379758681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379758682}
+  - component: {fileID: 1379758686}
+  - component: {fileID: 1379758685}
+  - component: {fileID: 1379758684}
+  - component: {fileID: 1379758683}
+  m_Layer: 0
+  m_Name: ButtonLock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1379758682
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379758681}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1909509375}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.578125, y: 0.5416667}
+  m_AnchorMax: {x: 0.921875, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1379758683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379758681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341139e4f7782c94898ee8c6f55bc9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479516731}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PlaySoundDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  pointerUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 479516731}
+        m_TargetAssemblyTypeName: ButtonHandler, Assembly-CSharp
+        m_MethodName: PlaySoundUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1379758684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379758681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
+    m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1379758685}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: InputAction
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Lock
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1379758685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379758681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1379758686
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379758681}
+  m_CullTransparentMesh: 1
 --- !u!1 &1421028117
 GameObject:
   m_ObjectHideFlags: 0
@@ -17144,9 +18053,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4a3a74fb07edd4a9bbfe560f242246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doBonusScan: 1
   buttons: {fileID: 479516728}
-  regularCodec: {fileID: 21300000, guid: 7feb41226356d68408d5a71d7c51ffed, type: 3}
-  disabledCodec: {fileID: 21300000, guid: 5cce488d67bfe004ea7de1c8d35c2850, type: 3}
+  regularCodec: {fileID: -972760140, guid: 027ce043ce29a3e46a2718071cb50def, type: 3}
+  disabledCodec: {fileID: 2115116797, guid: 027ce043ce29a3e46a2718071cb50def, type: 3}
   neuro: {fileID: 535933692}
   scanSound: {fileID: 8300000, guid: 1d70535f60c1dc140b75b8ebea75054b, type: 3}
   markerSprite: {fileID: 136863208, guid: 6ea61b88b7e175d4bab3fe6ec1c04d4a, type: 3}
@@ -17191,7 +18101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7feb41226356d68408d5a71d7c51ffed, type: 3}
+  m_Sprite: {fileID: -972760140, guid: 027ce043ce29a3e46a2718071cb50def, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -27246,7 +28156,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27256,7 +28166,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27276,7 +28186,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27400,13 +28310,15 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: fd092e541f7a5bd41990cff14d39e6db, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: bff1e57ab39ed894399de01288ccbe54, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 145659352, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1923640423, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 129834668, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -465156888, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   - m_RefCount: 1
@@ -27422,11 +28334,13 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -651460273, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -496312894, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+    m_Data: {fileID: 129834668, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1431855300, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 86fd21ec9dbafa64db56d2618a465989, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -496312894, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 14
     m_Data:
@@ -27449,6 +28363,10 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 14
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 8.312e-41, g: 8.312e-41, b: 8.312e-41, a: 8.312e-41}
+  - m_RefCount: 0
+    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -27485,7 +28403,7 @@ GameObject:
   - component: {fileID: 1686057513}
   - component: {fileID: 1686057512}
   m_Layer: 0
-  m_Name: Key6
+  m_Name: Neuro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27505,8 +28423,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 53440723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0625, y: 0.1875}
-  m_AnchorMax: {x: 0.5625, y: 1.1875}
+  m_AnchorMin: {x: 0.15625, y: 0.16666669}
+  m_AnchorMax: {x: 0.65625, y: 1.0555556}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27530,7 +28448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1431855300, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+  m_Sprite: {fileID: -699110157, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -27560,7 +28478,7 @@ GameObject:
   - component: {fileID: 1709847231}
   - component: {fileID: 1709847230}
   m_Layer: 0
-  m_Name: Neuro
+  m_Name: Key5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27580,8 +28498,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 53440723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1875, y: 0.0625}
-  m_AnchorMax: {x: 0.6875, y: 1.0625}
+  m_AnchorMin: {x: 0.25, y: 0.05555556}
+  m_AnchorMax: {x: 0.75, y: 0.94444454}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27605,7 +28523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -699110157, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+  m_Sprite: {fileID: -496312894, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -27804,7 +28722,7 @@ GameObject:
   - component: {fileID: 1819690087}
   - component: {fileID: 1819690086}
   m_Layer: 0
-  m_Name: Key5
+  m_Name: Vedal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27824,8 +28742,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 53440723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3125, y: -0.0625}
-  m_AnchorMax: {x: 0.8125, y: 0.9375}
+  m_AnchorMin: {x: 0.34375, y: -0.05555556}
+  m_AnchorMax: {x: 0.84375, y: 0.8333334}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27849,7 +28767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -496312894, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
+  m_Sprite: {fileID: -651460273, guid: 20f37e6d0d58235439a16db825d83427, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -28079,6 +28997,45 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!1 &1909509374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909509375}
+  m_Layer: 0
+  m_Name: Actions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1909509375
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909509374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1007013381}
+  - {fileID: 284634817}
+  - {fileID: 1379758682}
+  - {fileID: 123763409}
+  m_Father: {fileID: 479516729}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.036842104}
+  m_AnchorMax: {x: 1, y: 0.28947362}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1920292211
 GameObject:
   m_ObjectHideFlags: 0
@@ -28113,8 +29070,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.078125, y: 0.49681535}
-  m_AnchorMax: {x: 0.421875, y: 0.6369428}
+  m_AnchorMin: {x: 0.078125, y: 0.4140625}
+  m_AnchorMax: {x: 0.421875, y: 0.5859375}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -28142,7 +29099,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -28172,6 +29129,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: C
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickLetter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1920292213}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1920292214
@@ -37749,10 +38718,13 @@ MonoBehaviour:
     - {x: -1, y: 2}
     webNode:
       id: 3
-      playerLocked: 0
       name: A1
       position: {x: 0.32, y: 3.04, z: 0}
       connections: 0500000002000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A2
     type: 0
     unlockKey: 
@@ -37813,10 +38785,13 @@ MonoBehaviour:
     - {x: -1, y: -8}
     webNode:
       id: 0
-      playerLocked: 0
       name: A2
       position: {x: 0.79999995, y: -2.8799999, z: 0}
       connections: 040000000500000031000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A3
     type: 0
     unlockKey: 
@@ -37879,10 +38854,13 @@ MonoBehaviour:
     - {x: 5, y: -4}
     webNode:
       id: 1
-      playerLocked: 0
       name: A3
       position: {x: 4.64, y: 0.96, z: 0}
       connections: 0400000002000000060000002d000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A1-A3
     type: 1
     unlockKey: Anny
@@ -37897,10 +38875,13 @@ MonoBehaviour:
     - {x: 3, y: 3}
     webNode:
       id: 2
-      playerLocked: 0
       name: A1-A3
       position: {x: 2.8799999, y: 2.8799999, z: 0}
       connections: 0300000001000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A2-A3
     type: 1
     unlockKey: 
@@ -37915,10 +38896,13 @@ MonoBehaviour:
     - {x: 3, y: -3}
     webNode:
       id: 4
-      playerLocked: 0
       name: A2-A3
       position: {x: 2.8799999, y: -0.96, z: 0}
       connections: 0100000000000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A1-A2
     type: 1
     unlockKey: 
@@ -37933,10 +38917,13 @@ MonoBehaviour:
     - {x: 0, y: 0}
     webNode:
       id: 5
-      playerLocked: 0
       name: A1-A2
       position: {x: 0.96, y: 0.96, z: 0}
       connections: 0300000000000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A3-B1
     type: 1
     unlockKey: 
@@ -37951,10 +38938,13 @@ MonoBehaviour:
     - {x: 9, y: -3}
     webNode:
       id: 45
-      playerLocked: 0
       name: A3-B1
       position: {x: 6.72, y: -0.79999995, z: 0}
       connections: 010000002f000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B1
     type: 0
     unlockKey: 
@@ -38030,10 +39020,13 @@ MonoBehaviour:
     - {x: 11, y: 0}
     webNode:
       id: 47
-      playerLocked: 0
       name: B1
       position: {x: 9.28, y: -2.8799999, z: 0}
       connections: 2d0000002e0000001100000032000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B2
     type: 0
     unlockKey: 
@@ -38071,10 +39064,13 @@ MonoBehaviour:
     - {x: 11, y: 2}
     webNode:
       id: 10
-      playerLocked: 0
       name: B2
       position: {x: 8.48, y: 3.52, z: 0}
       connections: 0b000000270000002e000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B3
     type: 0
     unlockKey: 
@@ -38128,10 +39124,13 @@ MonoBehaviour:
     - {x: 17, y: 8}
     webNode:
       id: 16
-      playerLocked: 0
       name: B3
       position: {x: 12.96, y: 2.8799999, z: 0}
       connections: 0b0000001200000019000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B4
     type: 0
     unlockKey: 
@@ -38206,10 +39205,13 @@ MonoBehaviour:
     - {x: 22, y: -4}
     webNode:
       id: 14
-      playerLocked: 0
       name: B4
       position: {x: 16.64, y: -1.4399999, z: 0}
       connections: 11000000120000001300000036000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B1-B2
     type: 1
     unlockKey: 
@@ -38224,10 +39226,13 @@ MonoBehaviour:
     - {x: 12, y: 0}
     webNode:
       id: 46
-      playerLocked: 0
       name: B1-B2
       position: {x: 8.639999, y: 0.96, z: 0}
       connections: 0a0000002f000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B2-B3
     type: 1
     unlockKey: 
@@ -38242,10 +39247,13 @@ MonoBehaviour:
     - {x: 15, y: 3}
     webNode:
       id: 11
-      playerLocked: 0
       name: B2-B3
       position: {x: 10.559999, y: 2.72, z: 0}
       connections: 0a00000010000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B1-B4
     type: 1
     unlockKey: 
@@ -38260,10 +39268,13 @@ MonoBehaviour:
     - {x: 20, y: -7}
     webNode:
       id: 17
-      playerLocked: 0
       name: B1-B4
       position: {x: 13.759999, y: -3.52, z: 0}
       connections: 0e0000002f000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B3-B4
     type: 1
     unlockKey: Key5
@@ -38278,10 +39289,13 @@ MonoBehaviour:
     - {x: 22, y: 2}
     webNode:
       id: 18
-      playerLocked: 0
       name: B3-B4
       position: {x: 15.04, y: 2.24, z: 0}
       connections: 100000000e000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B4-C1
     type: 1
     unlockKey: 
@@ -38296,10 +39310,13 @@ MonoBehaviour:
     - {x: 27, y: -2}
     webNode:
       id: 19
-      playerLocked: 0
       name: B4-C1
       position: {x: 18.24, y: -0.32, z: 0}
       connections: 0e00000016000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: C1
     type: 0
     unlockKey: 
@@ -38357,10 +39374,13 @@ MonoBehaviour:
     - {x: 29, y: -4}
     webNode:
       id: 22
-      playerLocked: 0
       name: C1
       position: {x: 20.16, y: 0.32, z: 0}
       connections: 130000001400000015000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: C2
     type: 0
     unlockKey: 
@@ -38388,10 +39408,13 @@ MonoBehaviour:
     - {x: 29, y: -9}
     webNode:
       id: 23
-      playerLocked: 0
       name: C2
       position: {x: 20.16, y: -4.7999997, z: 0}
       connections: 140000002a000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: C3
     type: 0
     unlockKey: 
@@ -38419,10 +39442,13 @@ MonoBehaviour:
     - {x: 29, y: 7}
     webNode:
       id: 24
-      playerLocked: 0
       name: C3
       position: {x: 20.16, y: 6.08, z: 0}
       connections: 1500000028000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: C1-C2
     type: 1
     unlockKey: 
@@ -38437,10 +39463,13 @@ MonoBehaviour:
     - {x: 30, y: -6}
     webNode:
       id: 20
-      playerLocked: 0
       name: C1-C2
       position: {x: 20, y: -3.04, z: 0}
       connections: 1600000017000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: C1-C3
     type: 1
     unlockKey: Vedal
@@ -38455,10 +39484,13 @@ MonoBehaviour:
     - {x: 30, y: 5}
     webNode:
       id: 21
-      playerLocked: 0
       name: C1-C3
       position: {x: 20.16, y: 4.16, z: 0}
       connections: 1600000018000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B3-D1
     type: 1
     unlockKey: 
@@ -38473,10 +39505,13 @@ MonoBehaviour:
     - {x: 18, y: 8}
     webNode:
       id: 25
-      playerLocked: 0
       name: B3-D1
       position: {x: 12.48, y: 6.08, z: 0}
       connections: 100000001a000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D1
     type: 0
     unlockKey: 
@@ -38544,10 +39579,13 @@ MonoBehaviour:
     - {x: 13, y: 18}
     webNode:
       id: 26
-      playerLocked: 0
       name: D1
       position: {x: 10.4, y: 8.639999, z: 0}
       connections: 190000001b0000001f000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D2
     type: 0
     unlockKey: 
@@ -38600,10 +39638,13 @@ MonoBehaviour:
     - {x: 5, y: 16}
     webNode:
       id: 28
-      playerLocked: 0
       name: D2
       position: {x: 5.44, y: 9.76, z: 0}
       connections: 1b0000002c0000001d000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D3
     type: 0
     unlockKey: 
@@ -38658,10 +39699,13 @@ MonoBehaviour:
     - {x: 3, y: 23}
     webNode:
       id: 34
-      playerLocked: 0
       name: D3
       position: {x: 5.2799997, y: 14.4, z: 0}
       connections: 2b0000002c00000021000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D4
     type: 0
     unlockKey: 
@@ -38706,10 +39750,13 @@ MonoBehaviour:
     - {x: 13, y: 26}
     webNode:
       id: 32
-      playerLocked: 0
       name: D4
       position: {x: 9.92, y: 14.88, z: 0}
       connections: 21000000230000001f000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D1-D2
     type: 1
     unlockKey: 
@@ -38724,10 +39771,13 @@ MonoBehaviour:
     - {x: 11, y: 15}
     webNode:
       id: 27
-      playerLocked: 0
       name: D1-D2
       position: {x: 8, y: 10.559999, z: 0}
       connections: 1a0000001c000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D1-D4
     type: 1
     unlockKey: 
@@ -38742,10 +39792,13 @@ MonoBehaviour:
     - {x: 14, y: 18}
     webNode:
       id: 31
-      playerLocked: 0
       name: D1-D4
       position: {x: 9.92, y: 12.48, z: 0}
       connections: 1a00000020000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D2-D3
     type: 1
     unlockKey: Key6
@@ -38760,10 +39813,13 @@ MonoBehaviour:
     - {x: 8, y: 18}
     webNode:
       id: 44
-      playerLocked: 0
       name: D2-D3
       position: {x: 6.08, y: 12.48, z: 0}
       connections: 1c00000022000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D3-D4
     type: 1
     unlockKey: 
@@ -38778,10 +39834,13 @@ MonoBehaviour:
     - {x: 11, y: 22}
     webNode:
       id: 33
-      playerLocked: 0
       name: D3-D4
       position: {x: 7.8399997, y: 15.04, z: 0}
       connections: 2200000020000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D2-E1
     type: 1
     unlockKey: 
@@ -38796,10 +39855,13 @@ MonoBehaviour:
     - {x: 3, y: 13}
     webNode:
       id: 29
-      playerLocked: 0
       name: D2-E1
       position: {x: 2.8799999, y: 9.28, z: 0}
       connections: 1c0000001e000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: D4-E2
     type: 1
     unlockKey: Neuro
@@ -38814,10 +39876,13 @@ MonoBehaviour:
     - {x: 18, y: 21}
     webNode:
       id: 35
-      playerLocked: 0
       name: D4-E2
       position: {x: 12.48, y: 14.4, z: 0}
       connections: 2000000024000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: E1
     type: 0
     unlockKey: 
@@ -38869,10 +39934,13 @@ MonoBehaviour:
     - {x: -1, y: 11}
     webNode:
       id: 30
-      playerLocked: 0
       name: E1
       position: {x: 0.32, y: 8.639999, z: 0}
       connections: 1d00000029000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: E2
     type: 0
     unlockKey: 
@@ -38915,10 +39983,13 @@ MonoBehaviour:
     - {x: 20, y: 15}
     webNode:
       id: 36
-      playerLocked: 0
       name: E2
       position: {x: 13.759999, y: 12.96, z: 0}
       connections: 2300000025000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: E3
     type: 0
     unlockKey: 
@@ -39012,10 +40083,13 @@ MonoBehaviour:
     - {x: 24, y: 14}
     webNode:
       id: 38
-      playerLocked: 0
       name: E3
       position: {x: 18.24, y: 10.559999, z: 0}
       connections: 2500000030000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: E2-E3
     type: 1
     unlockKey: Evil
@@ -39030,10 +40104,13 @@ MonoBehaviour:
     - {x: 22, y: 16}
     webNode:
       id: 37
-      playerLocked: 0
       name: E2-E3
       position: {x: 15.04, y: 11.2, z: 0}
       connections: 2400000026000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: Anny
     type: 1
     unlockKey: 
@@ -39042,10 +40119,13 @@ MonoBehaviour:
     - {x: 8, y: 5}
     webNode:
       id: 6
-      playerLocked: 0
       name: Anny
       position: {x: 5.44, y: 3.52, z: 0}
       connections: 01000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: Vedal
     type: 1
     unlockKey: 
@@ -39054,10 +40134,13 @@ MonoBehaviour:
     - {x: 12, y: 6}
     webNode:
       id: 39
-      playerLocked: 0
       name: Vedal
       position: {x: 8, y: 4.16, z: 0}
       connections: 0a000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: Neuro
     type: 1
     unlockKey: 
@@ -39066,10 +40149,13 @@ MonoBehaviour:
     - {x: 30, y: 9}
     webNode:
       id: 40
-      playerLocked: 0
       name: Neuro
       position: {x: 19.52, y: 6.08, z: 0}
       connections: 18000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: Evil
     type: 1
     unlockKey: 
@@ -39078,10 +40164,13 @@ MonoBehaviour:
     - {x: 1, y: 10}
     webNode:
       id: 41
-      playerLocked: 0
       name: Evil
       position: {x: 0.96, y: 6.72, z: 0}
       connections: 1e000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: Key5
     type: 1
     unlockKey: 
@@ -39090,10 +40179,13 @@ MonoBehaviour:
     - {x: 30, y: -8}
     webNode:
       id: 42
-      playerLocked: 0
       name: Key5
       position: {x: 19.52, y: -4.7999997, z: 0}
       connections: 17000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: Key6
     type: 1
     unlockKey: 
@@ -39102,10 +40194,13 @@ MonoBehaviour:
     - {x: 4, y: 22}
     webNode:
       id: 43
-      playerLocked: 0
       name: Key6
       position: {x: 2.8799999, y: 14.4, z: 0}
       connections: 22000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: Ending
     type: 1
     unlockKey: 
@@ -39118,10 +40213,13 @@ MonoBehaviour:
     - {x: 30, y: 18}
     webNode:
       id: 48
-      playerLocked: 0
       name: Ending
       position: {x: 20.16, y: 11.84, z: 0}
       connections: 26000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A2-A4
     type: 1
     unlockKey: 
@@ -39136,10 +40234,13 @@ MonoBehaviour:
     - {x: 3, y: -9}
     webNode:
       id: 49
-      playerLocked: 0
       name: A2-A4
       position: {x: 2.8799999, y: -4.7999997, z: 0}
       connections: 3300000000000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A4-B1
     type: 1
     unlockKey: 
@@ -39154,10 +40255,13 @@ MonoBehaviour:
     - {x: 14, y: -10}
     webNode:
       id: 50
-      playerLocked: 0
       name: A4-B1
       position: {x: 9.92, y: -5.6, z: 0}
       connections: 330000002f000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A4
     type: 0
     unlockKey: 
@@ -39245,10 +40349,13 @@ MonoBehaviour:
     - {x: 5, y: -6}
     webNode:
       id: 51
-      playerLocked: 0
       name: A4
       position: {x: 6.72, y: -7.52, z: 0}
       connections: 310000003200000035000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B5
     type: 0
     unlockKey: 
@@ -39293,10 +40400,13 @@ MonoBehaviour:
     - {x: 19, y: -10}
     webNode:
       id: 52
-      playerLocked: 0
       name: B5
       position: {x: 14.4, y: -7.52, z: 0}
       connections: 3600000035000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: A4-B5
     type: 1
     unlockKey: 
@@ -39311,10 +40421,13 @@ MonoBehaviour:
     - {x: 17, y: -13}
     webNode:
       id: 53
-      playerLocked: 0
       name: A4-B5
       position: {x: 11.84, y: -7.3599997, z: 0}
       connections: 3400000033000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
   - nodeName: B4-B5
     type: 1
     unlockKey: Anny
@@ -39329,10 +40442,13 @@ MonoBehaviour:
     - {x: 23, y: -10}
     webNode:
       id: 54
-      playerLocked: 0
       name: B4-B5
       position: {x: 15.5199995, y: -5.44, z: 0}
       connections: 0e00000034000000
+      playerLocked: 0
+      locked: 0
+      lured: 0
+      scanState: 2
 --- !u!114 &1984279479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39347,257 +40463,407 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - id: 0
-    playerLocked: 0
     name: A2
     position: {x: 0.79999995, y: -2.8799999, z: 0}
     connections: 040000000500000031000000
-  - id: 3
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 3
     name: A1
     position: {x: 0.32, y: 3.04, z: 0}
     connections: 0500000002000000
-  - id: 5
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 5
     name: A1-A2
     position: {x: 0.96, y: 0.96, z: 0}
     connections: 0300000000000000
-  - id: 1
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 1
     name: A3
     position: {x: 4.64, y: 0.96, z: 0}
     connections: 0400000002000000060000002d000000
-  - id: 2
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 2
     name: A1-A3
     position: {x: 2.8799999, y: 2.8799999, z: 0}
     connections: 0300000001000000
-  - id: 4
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 4
     name: A2-A3
     position: {x: 2.8799999, y: -0.96, z: 0}
     connections: 0100000000000000
-  - id: 45
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 45
     name: A3-B1
     position: {x: 6.72, y: -0.79999995, z: 0}
     connections: 010000002f000000
-  - id: 47
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 47
     name: B1
     position: {x: 9.28, y: -2.8799999, z: 0}
     connections: 2d0000002e0000001100000032000000
-  - id: 10
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 10
     name: B2
     position: {x: 8.48, y: 3.52, z: 0}
     connections: 0b000000270000002e000000
-  - id: 16
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 16
     name: B3
     position: {x: 12.96, y: 2.8799999, z: 0}
     connections: 0b0000001200000019000000
-  - id: 14
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 14
     name: B4
     position: {x: 16.64, y: -1.4399999, z: 0}
     connections: 11000000120000001300000036000000
-  - id: 46
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 46
     name: B1-B2
     position: {x: 8.639999, y: 0.96, z: 0}
     connections: 0a0000002f000000
-  - id: 11
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 11
     name: B2-B3
     position: {x: 10.559999, y: 2.72, z: 0}
     connections: 0a00000010000000
-  - id: 17
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 17
     name: B1-B4
     position: {x: 13.759999, y: -3.52, z: 0}
     connections: 0e0000002f000000
-  - id: 18
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 18
     name: B3-B4
     position: {x: 15.04, y: 2.24, z: 0}
     connections: 100000000e000000
-  - id: 19
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 19
     name: B4-C1
     position: {x: 18.24, y: -0.32, z: 0}
     connections: 0e00000016000000
-  - id: 22
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 22
     name: C1
     position: {x: 20.16, y: 0.32, z: 0}
     connections: 130000001400000015000000
-  - id: 23
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 23
     name: C2
     position: {x: 20.16, y: -4.7999997, z: 0}
     connections: 140000002a000000
-  - id: 24
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 24
     name: C3
     position: {x: 20.16, y: 6.08, z: 0}
     connections: 1500000028000000
-  - id: 20
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 20
     name: C1-C2
     position: {x: 20, y: -3.04, z: 0}
     connections: 1600000017000000
-  - id: 21
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 21
     name: C1-C3
     position: {x: 20.16, y: 4.16, z: 0}
     connections: 1600000018000000
-  - id: 25
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 25
     name: B3-D1
     position: {x: 12.48, y: 6.08, z: 0}
     connections: 100000001a000000
-  - id: 26
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 26
     name: D1
     position: {x: 10.4, y: 8.639999, z: 0}
     connections: 190000001b0000001f000000
-  - id: 28
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 28
     name: D2
     position: {x: 5.44, y: 9.76, z: 0}
     connections: 1b0000002c0000001d000000
-  - id: 34
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 34
     name: D3
     position: {x: 5.2799997, y: 14.4, z: 0}
     connections: 2b0000002c00000021000000
-  - id: 32
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 32
     name: D4
     position: {x: 9.92, y: 14.88, z: 0}
     connections: 21000000230000001f000000
-  - id: 27
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 27
     name: D1-D2
     position: {x: 8, y: 10.559999, z: 0}
     connections: 1a0000001c000000
-  - id: 31
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 31
     name: D1-D4
     position: {x: 9.92, y: 12.48, z: 0}
     connections: 1a00000020000000
-  - id: 44
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 44
     name: D2-D3
     position: {x: 6.08, y: 12.48, z: 0}
     connections: 1c00000022000000
-  - id: 33
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 33
     name: D3-D4
     position: {x: 7.8399997, y: 15.04, z: 0}
     connections: 2200000020000000
-  - id: 29
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 29
     name: D2-E1
     position: {x: 2.8799999, y: 9.28, z: 0}
     connections: 1c0000001e000000
-  - id: 35
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 35
     name: D4-E2
     position: {x: 12.48, y: 14.4, z: 0}
     connections: 2000000024000000
-  - id: 30
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 30
     name: E1
     position: {x: 0.32, y: 8.639999, z: 0}
     connections: 1d00000029000000
-  - id: 36
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 36
     name: E2
     position: {x: 13.759999, y: 12.96, z: 0}
     connections: 2300000025000000
-  - id: 38
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 38
     name: E3
     position: {x: 18.24, y: 10.559999, z: 0}
     connections: 2500000030000000
-  - id: 37
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 37
     name: E2-E3
     position: {x: 15.04, y: 11.2, z: 0}
     connections: 2400000026000000
-  - id: 6
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 6
     name: Anny
     position: {x: 5.44, y: 3.52, z: 0}
     connections: 01000000
-  - id: 39
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 39
     name: Vedal
     position: {x: 8, y: 4.16, z: 0}
     connections: 0a000000
-  - id: 40
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 40
     name: Neuro
     position: {x: 19.52, y: 6.08, z: 0}
     connections: 18000000
-  - id: 41
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 41
     name: Evil
     position: {x: 0.96, y: 6.72, z: 0}
     connections: 1e000000
-  - id: 42
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 42
     name: Key5
     position: {x: 19.52, y: -4.7999997, z: 0}
     connections: 17000000
-  - id: 43
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 43
     name: Key6
     position: {x: 2.8799999, y: 14.4, z: 0}
     connections: 22000000
-  - id: 48
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 48
     name: Ending
     position: {x: 20.16, y: 11.84, z: 0}
     connections: 26000000
-  - id: 49
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 49
     name: A2-A4
     position: {x: 2.8799999, y: -4.7999997, z: 0}
     connections: 3300000000000000
-  - id: 50
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 50
     name: A4-B1
     position: {x: 9.92, y: -5.6, z: 0}
     connections: 330000002f000000
-  - id: 51
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 51
     name: A4
     position: {x: 6.72, y: -7.52, z: 0}
     connections: 310000003200000035000000
-  - id: 52
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 52
     name: B5
     position: {x: 14.4, y: -7.52, z: 0}
     connections: 3600000035000000
-  - id: 53
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 53
     name: A4-B5
     position: {x: 11.84, y: -7.3599997, z: 0}
     connections: 3400000033000000
-  - id: 54
     playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
+  - id: 54
     name: B4-B5
     position: {x: 15.5199995, y: -5.44, z: 0}
     connections: 0e00000034000000
+    playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
   bidirectional: 1
   currentWebNode:
     id: -1
-    playerLocked: 0
     name: 
     position: {x: 0, y: 0, z: 0}
     connections: 
+    playerLocked: 0
+    locked: 0
+    lured: 0
+    scanState: 2
 --- !u!1 &2018383748
 GameObject:
   m_ObjectHideFlags: 0
@@ -39632,8 +40898,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1224705017}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.078125, y: 0.33121037}
-  m_AnchorMax: {x: 0.421875, y: 0.4713377}
+  m_AnchorMin: {x: 0.078125, y: 0.2109375}
+  m_AnchorMax: {x: 0.421875, y: 0.3828125}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -39661,7 +40927,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5529412, g: 0.627451, b: 0.6, a: 0.19607843}
     m_PressedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.19607843, g: 0.23529412, b: 0.22352941, a: 0.5882353}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -39691,6 +40957,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: D
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1421028120}
+        m_TargetAssemblyTypeName: Codec, Assembly-CSharp
+        m_MethodName: ClickLetter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2018383750}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2018383751
@@ -49693,6 +50971,7 @@ MonoBehaviour:
   roomDictionary: {fileID: 1984279478}
   pauseMenu: {fileID: 806021879}
   player: {fileID: 284675038}
+  lockTile: {fileID: 11400000, guid: f88347b753b6ae4448692c87dbc95f0c, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

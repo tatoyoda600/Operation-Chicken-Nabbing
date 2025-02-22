@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     public RoomDictionary roomDictionary;
     public GameObject pauseMenu;
     public TestMovement player;
+    public TileBase lockTile;
 
     readonly List<GuardScript> guards = new List<GuardScript>();
     public bool paused
@@ -80,11 +82,12 @@ public class GameManager : MonoBehaviour
         return output;
     }
 
-    public void ShowGuardMarker(string roomName, GuardScript.MarkerFading fadeStage)
+    public void ShowGuardMarker(PathWeb.WebNode roomNode, GuardScript.MarkerFading fadeStage)
     {
+        roomNode.scanState = fadeStage;
         foreach (GuardScript guard in guards)
         {
-            if (roomName.Equals(guard.path[guard.curNodeIndex]))
+            if (roomNode.name.Equals(guard.path[guard.curNodeIndex]))
             {
                 guard.ShowMarker(fadeStage);
             }
@@ -113,5 +116,49 @@ public class GameManager : MonoBehaviour
     public PlayerInput GetInputSystem()
     {
         return player.playerInput;
+    }
+
+    public PathWeb.WebNode GetLuredNode(PathWeb.WebNode node)
+    {
+        PathWeb.WebNode luredNode = null;
+        HashSet<int> processedIds = new HashSet<int>(node.connections);
+        List<int> connectionIds = new List<int>(processedIds);
+        while (connectionIds.Count > 0)
+        {
+            PathWeb.WebNode conNode = pathWeb.GetWebNode(connectionIds[0]);
+            connectionIds.RemoveAt(0);
+
+            if (!conNode.locked && !conNode.playerLocked)
+            {
+                // Only room nodes can be lured, a non-lured node is either a non-lured room or a node that could connect to a lured room
+                if (conNode.lured)
+                {
+                    Vector3Int cellPos = groundTilemap.WorldToCell(conNode.position);
+                    Vector3Int luredCellPos = cellPos + Vector3Int.right;
+                    if (luredNode != null)
+                    {
+                        luredCellPos = groundTilemap.WorldToCell(conNode.position);
+                    }
+                    // Prioritize lured nodes on the left, using lower down as a tiebreaker
+                    if (cellPos.x < luredCellPos.x || (cellPos.x == luredCellPos.x && cellPos.y < luredCellPos.y))
+                    {
+                        luredNode = conNode;
+                    }
+                }
+                else if (roomDictionary.GetNode(conNode.name).type != RoomDictionary.NodeType.Room)
+                {
+                    // Node isn't a room, so its connections need to be processed in case any are lured rooms
+                    foreach (int conId in conNode.connections)
+                    {
+                        if (processedIds.Add(conId))
+                        {
+                            connectionIds.Add(conId);
+                        }
+                    }
+                }
+            }
+        }
+
+        return luredNode;
     }
 }

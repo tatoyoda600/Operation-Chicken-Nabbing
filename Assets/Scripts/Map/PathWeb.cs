@@ -12,12 +12,19 @@ public class PathWeb : MonoBehaviour
     {
         [HideInInspector]
         public int id = -1;
-        [HideInInspector]
-        public bool playerLocked = false;
         public string name;
         public Vector3 position;
         [HideInInspector]
         public List<int> connections = new List<int>();
+
+        [HideInInspector]
+        public bool playerLocked = false;
+        [HideInInspector]
+        public bool locked = false;
+        [HideInInspector]
+        public bool lured = false;
+        [HideInInspector]
+        public GuardScript.MarkerFading scanState = GuardScript.MarkerFading.Faded;
 
         public static void ConnectNodes(ref WebNode node1, ref WebNode node2, bool twoWay)
         {
@@ -109,15 +116,19 @@ public class PathWeb : MonoBehaviour
     {
         if (node != null)
         {
-            LockNode(currentWebNode, false);
-            LockNode(node, true);
+            /*Locking/Unlocking is already handled when darkening/brightening the rooms
+            LockNode(currentWebNode, false, true);
+            LockNode(node, true, true);
+            LockVisuals(currentWebNode, false);
+            LockVisuals(node, true);
+            */
             currentWebNode = node;
         }
     }
 
-    public void LockNode(int id, bool value) { LockNode(GetWebNode(id), value); }
-    public void LockNode(string name, bool value) { LockNode(GetWebNode(name), value); }
-    public void LockNode(WebNode node, bool value)
+    public void LockNode(int id, bool value, bool isPlayer = false) { LockNode(GetWebNode(id), value, isPlayer); }
+    public void LockNode(string name, bool value, bool isPlayer = false) { LockNode(GetWebNode(name), value, isPlayer); }
+    public void LockNode(WebNode node, bool value, bool isPlayer = false)
     {
         if (node != null)
         {
@@ -125,33 +136,40 @@ public class PathWeb : MonoBehaviour
             {
                 lockedNodes.Add(node);
             }
-            else
+            else if ((isPlayer && !node.locked) || (!isPlayer && !node.playerLocked))
             {
                 lockedNodes.Remove(node);
             }
 
-            node.playerLocked = value;
             if (value)
             {
+                node.locked = !isPlayer || node.locked;
+                node.playerLocked = isPlayer || node.playerLocked;
+
                 // Free to lock all connected nodes
                 foreach (int connectionId in node.connections)
                 {
                     WebNode connection = GetWebNode(connectionId);
                     if (connection != null)
                     {
-                        connection.playerLocked = true;
+                        connection.locked = !isPlayer || connection.locked;
+                        connection.playerLocked = isPlayer || connection.playerLocked;
                     }
                 }
             }
             else
             {
+                node.locked = isPlayer && node.locked;
+                node.playerLocked = !isPlayer && node.playerLocked;
+
                 // Must ensure connected nodes aren't locked by other things before unlocking them
                 foreach (int connectionId in node.connections)
                 {
                     bool shared = false;
                     foreach (WebNode lockedNode in lockedNodes)
                     {
-                        if (lockedNode.connections.Contains(connectionId))
+                        bool isSameLock = (!isPlayer && lockedNode.locked) || (isPlayer && lockedNode.playerLocked);
+                        if (isSameLock && lockedNode.connections.Contains(connectionId))
                         {
                             shared = true;
                             break;
@@ -163,12 +181,33 @@ public class PathWeb : MonoBehaviour
                         WebNode connection = GetWebNode(connectionId);
                         if (connection != null)
                         {
-                            connection.playerLocked = false;
+                            connection.locked = isPlayer && connection.locked;
+                            connection.playerLocked = !isPlayer && connection.playerLocked;
                         }
                     }
                 }
             }
         }
     }
-}
 
+    public void LockVisuals(WebNode node, bool show)
+    {
+        // Prevent hiding locks when room is still locked
+        if (show || (!node.locked && !node.playerLocked))
+        {
+            ZoneDictionary zoneDictionary = GameManager.instance.interactionTilemap.GetComponent<ZoneDictionary>();
+            foreach (int conId in node.connections)
+            {
+                WebNode conWebNode = GameManager.instance.pathWeb.GetWebNode(conId);
+                if (show || (!conWebNode.locked && !conWebNode.playerLocked))
+                {
+                    Vector3Int conPos = GameManager.instance.interactionTilemap.WorldToCell(conWebNode.position);
+                    if (zoneDictionary.GetZone(conPos)?.zoneName == "Doors")
+                    {
+                        GameManager.instance.keyTilemap.SetTile(conPos, show ? GameManager.instance.lockTile : null);
+                    }
+                }
+            }
+        }
+    }
+}

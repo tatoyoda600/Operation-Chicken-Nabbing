@@ -90,7 +90,7 @@ public class PathWebEditor : Editor
         for (int i = 0; i < component.nodes.Count; i++)
         {
             PathWeb.WebNode node1 = component.nodes[i];
-            Handles.color = node1.Equals(selectedNode) ? selectedHandleColor : (node1.playerLocked ? enabledColor : disabledColor);
+            Handles.color = node1.Equals(selectedNode) ? selectedHandleColor : (node1.locked || node1.playerLocked ? enabledColor : disabledColor);
 
             Handles.PositionHandleIds id = Handles.PositionHandleIds.@default;
             node1.position = Handles.PositionHandle(id, node1.position, Quaternion.identity);

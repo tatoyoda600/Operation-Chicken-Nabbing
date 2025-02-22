@@ -215,8 +215,9 @@ public class RoomDictionary : MonoBehaviour
         NodeData node = GetNode(roomName);
         if (node != null)
         {
-            GameManager.instance.pathWeb.LockNode(roomName, false);
+            GameManager.instance.pathWeb.LockNode(node.webNode, false, true);
             ChangeRoomLight(node, false);
+            GameManager.instance.pathWeb.LockVisuals(node.webNode, false);
         }
     }
 
@@ -225,8 +226,9 @@ public class RoomDictionary : MonoBehaviour
         NodeData node = GetNode(roomName);
         if (node != null)
         {
-            GameManager.instance.pathWeb.LockNode(roomName, true);
+            GameManager.instance.pathWeb.LockNode(node.webNode, true, true);
             ChangeRoomLight(node, true);
+            GameManager.instance.pathWeb.LockVisuals(node.webNode, true);
             GameManager.instance.TriggerGuardsInRoom(roomName);
         }
     }
@@ -260,7 +262,7 @@ public class RoomDictionary : MonoBehaviour
     }
 
     const int maxCellsPerFrame = 5;
-    public static IEnumerator RefreshTilesAsync(Tilemap tilemap, List<Vector2Int> cells, int turnDuration = 0)
+    public static IEnumerator RefreshTilesAsync(Tilemap tilemap, List<Vector2Int> cells, float turnDuration = 0)
     {
         yield return null;
         float turnProgress = TimeManager.instance.timeElapsed / TimeManager.instance.actionTime;

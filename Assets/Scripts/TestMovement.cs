@@ -17,14 +17,15 @@ public class TestMovement : MonoBehaviour
     public Codec codec;
 
     const string CONSUMED_INTERACTION = "CONSUMED_INTERACTION";
+    const string PLAYER_KEY = "Player";
 
     public PlayerInput playerInput { get; private set; }
     string currentRoom;
     Vector2 destination = Vector2.zero;
     bool noInput = true;
-    List<Vector2Int> movementSequence = new List<Vector2Int>();
+    readonly List<Vector2Int> movementSequence = new List<Vector2Int>();
     Action onSequenceEnd = null;
-    HashSet<string> keys = new HashSet<string>();
+    readonly HashSet<string> keys = new HashSet<string>();
     Animator anim;
     SpriteRenderer sprite;
     Vector2 freePosition;
@@ -41,6 +42,9 @@ public class TestMovement : MonoBehaviour
             playerInput.asset.LoadBindingOverridesFromJson(keyMapping);
         }
         codec.InputSetup(playerInput);
+
+        keys.Add(PLAYER_KEY);
+        keyHolder.transform.Find(PLAYER_KEY).gameObject.SetActive(true);
 
         anim = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<SpriteRenderer>();
